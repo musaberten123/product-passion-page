@@ -12,21 +12,21 @@ const Footer = () => {
               WarmRelief
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Regl ağrılarınıza karşı etkili ve konforlu bir çözüm. Isıtma ve
-              masaj teknolojisiyle rahatlamanızı sağlıyoruz.
+              Effective and comfortable relief for menstrual pain. 
+              We provide comfort through heating and massage technology.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Hızlı Bağlantılar</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  Ana Sayfa
+                  Home
                 </Link>
               </li>
               <li>
@@ -34,7 +34,7 @@ const Footer = () => {
                   to="/product"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  Ürün
+                  Product
                 </Link>
               </li>
               <li>
@@ -42,7 +42,7 @@ const Footer = () => {
                   to="/contact"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  İletişim
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">İletişim</h4>
+            <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail className="w-4 h-4 text-primary" />
@@ -58,11 +58,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+90 555 123 45 67</span>
+                <span>+1 555 123 4567</span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>İstanbul, Türkiye</span>
+                <span>New York, USA</span>
               </li>
             </ul>
           </div>
@@ -70,7 +70,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 WarmRelief. Tüm hakları saklıdır.
+            © 2024 WarmRelief. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm flex items-center gap-1">
             Made with <Heart className="w-4 h-4 text-primary fill-primary" /> for your comfort
