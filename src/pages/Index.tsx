@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,10 +9,20 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
+import IntroAnimation from "@/components/IntroAnimation";
 
 const Index = () => {
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleIntroComplete = useCallback(() => {
+    setShowIntro(false);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Intro Animation */}
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+
       <Navbar />
 
       {/* Hero Section */}
@@ -24,13 +35,13 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: showIntro ? 3.5 : 0.2 }}
               className="text-center lg:text-left"
             >
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: showIntro ? 3.7 : 0.4 }}
                 className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
               >
                 ✨ Yeni Nesil Rahatlama
@@ -72,7 +83,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: showIntro ? 3.5 : 0.4 }}
             >
               <HeroAnimation />
             </motion.div>
@@ -83,7 +94,7 @@ const Index = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: showIntro ? 4.5 : 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
           <motion.div
