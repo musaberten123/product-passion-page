@@ -1,21 +1,21 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 const HeroAnimation = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
-  const productImages = [
+  const productImages = useMemo(() => [
     "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
     "https://ae01.alicdn.com/kf/S13afc97e8d654229b53b1b74a6ae7841B.jpg",
     "https://ae01.alicdn.com/kf/S67958c0bf63946d69c25a11a09704b96z.jpg",
-  ];
+  ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % productImages.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [productImages.length]);
 
   return (
     <div className="relative w-full max-w-lg mx-auto aspect-square">
