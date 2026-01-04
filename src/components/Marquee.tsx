@@ -1,13 +1,13 @@
 const Marquee = () => {
   const items = [
-    "RAHATLIK",
-    "KONFOR",
-    "TEKNOLOJİ",
-    "SAĞLIK",
-    "RAHATLIK",
-    "KONFOR",
-    "TEKNOLOJİ",
-    "SAĞLIK",
+    "COMFORT",
+    "RELIEF",
+    "TECHNOLOGY",
+    "WELLNESS",
+    "COMFORT",
+    "RELIEF",
+    "TECHNOLOGY",
+    "WELLNESS",
   ];
 
   return (

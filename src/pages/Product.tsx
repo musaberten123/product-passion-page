@@ -15,14 +15,14 @@ const productImages = [
 ];
 
 const features = [
-  "Ayarlanabilir elastik kayış ve toka",
-  "3-5 saniyede hızlı ısınma",
-  "3 kademe akıllı sıcaklık ayarı (50/55/60°C)",
-  "4 kademe titreşimli masaj",
-  "Hafif tasarım (sadece 0.5 lbs)",
-  "Yumuşak ve nefes alabilir kumaş",
-  "52 inç'e kadar uzayabilen kayış",
-  "Uzak kızılötesi dalga teknolojisi",
+  "Adjustable elastic strap and buckle",
+  "Heats up in 3-5 seconds",
+  "3-level smart temperature control (50/55/60°C)",
+  "4-level vibration massage",
+  "Lightweight design (only 0.5 lbs)",
+  "Soft and breathable fabric",
+  "Strap extends up to 52 inches",
+  "Far-infrared wave technology",
 ];
 
 const Product = () => {
@@ -92,13 +92,12 @@ const Product = () => {
                     Best Seller
                   </span>
                   <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                    Regl Ağrı Kesici Isıtmalı Masaj Kemeri
+                    Menstrual Relief Heating Massage Belt
                   </h1>
                   <p className="text-muted-foreground leading-relaxed">
-                    Nazik ısı ve hedefli masajı birleştiren bu kemer, krampları ve
-                    rahatsızlığı hafifletir. Evde veya dışarıda kullanım için
-                    ayarlanabilir ve taşınabilir, ağrınızı nerede olursanız olun
-                    yönetmenize olanak tanır.
+                    Combining gentle heat with targeted massage, this belt relieves 
+                    cramps and discomfort. Adjustable and portable for use at home 
+                    or on the go, letting you manage your pain wherever you are.
                   </p>
                 </div>
 
@@ -108,13 +107,13 @@ const Product = () => {
                     $49.95
                   </span>
                   <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-semibold rounded-full">
-                    %50 Tasarruf
+                    Save 50%
                   </span>
                 </div>
 
                 {/* Color Selection */}
                 <div className="space-y-3">
-                  <label className="text-sm font-medium">Renk Seçimi</label>
+                  <label className="text-sm font-medium">Color</label>
                   <div className="flex gap-3">
                     <button
                       type="button"
@@ -124,7 +123,7 @@ const Product = () => {
                           ? "border-foreground scale-110"
                           : "border-transparent"
                       }`}
-                      aria-label="Pembe renk seç"
+                      aria-label="Select pink color"
                     />
                     <button
                       type="button"
@@ -134,14 +133,14 @@ const Product = () => {
                           ? "border-foreground scale-110"
                           : "border-muted"
                       }`}
-                      aria-label="Beyaz renk seç"
+                      aria-label="Select white color"
                     />
                   </div>
                 </div>
 
                 {/* Quantity */}
                 <div className="space-y-3">
-                  <label className="text-sm font-medium">Adet</label>
+                  <label className="text-sm font-medium">Quantity</label>
                   <div className="flex items-center gap-4">
                     <button
                       type="button"
@@ -169,7 +168,7 @@ const Product = () => {
                   whileTap={{ scale: 0.98 }}
                   className="w-full py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
                 >
-                  Sepete Ekle - ${(24.95 * quantity).toFixed(2)}
+                  Add to Cart - ${(24.95 * quantity).toFixed(2)}
                 </motion.button>
 
                 {/* Trust badges */}
@@ -177,19 +176,19 @@ const Product = () => {
                   <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
                     <Truck className="w-6 h-6 text-primary mb-2" />
                     <span className="text-xs text-muted-foreground">
-                      Ücretsiz Kargo
+                      Free Shipping
                     </span>
                   </div>
                   <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
                     <Shield className="w-6 h-6 text-primary mb-2" />
                     <span className="text-xs text-muted-foreground">
-                      Güvenli Ödeme
+                      Secure Payment
                     </span>
                   </div>
                   <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
                     <RotateCcw className="w-6 h-6 text-primary mb-2" />
                     <span className="text-xs text-muted-foreground">
-                      30 Gün İade
+                      30-Day Returns
                     </span>
                   </div>
                 </div>
@@ -201,7 +200,7 @@ const Product = () => {
           <section className="mt-24">
             <ScrollReveal>
               <h2 className="text-3xl font-display font-bold mb-8 text-center">
-                Ürün <span className="text-gradient">Özellikleri</span>
+                Product <span className="text-gradient">Features</span>
               </h2>
             </ScrollReveal>
 
@@ -223,7 +222,7 @@ const Product = () => {
           <section className="mt-24">
             <ScrollReveal>
               <h2 className="text-3xl font-display font-bold mb-8 text-center">
-                Detaylı <span className="text-gradient">Görüntüler</span>
+                Detailed <span className="text-gradient">Images</span>
               </h2>
             </ScrollReveal>
 
@@ -258,18 +257,14 @@ const Product = () => {
             <ScrollReveal>
               <div className="max-w-3xl mx-auto p-8 bg-card rounded-2xl border border-border">
                 <h3 className="text-xl font-semibold mb-4 text-primary">
-                  ⚠️ Önemli Uyarılar
+                  ⚠️ Important Warnings
                 </h3>
                 <ul className="space-y-2 text-muted-foreground text-sm">
-                  <li>• Yüksek sıcaklık ayarını 8 dakikadan fazla kullanmayın.</li>
-                  <li>• Hassas cilt için kıyafet üzerinden kullanım önerilir.</li>
-                  <li>• Hamile kadınlar için uygun değildir.</li>
-                  <li>
-                    • Ciddi kardiyovasküler hastalığı olan kişiler kullanmamalıdır.
-                  </li>
-                  <li>
-                    • Cilt duyarlılığı bozukluğu olan kişiler dikkatli olmalıdır.
-                  </li>
+                  <li>• Do not use high temperature setting for more than 8 minutes.</li>
+                  <li>• For sensitive skin, use over clothing.</li>
+                  <li>• Not suitable for pregnant women.</li>
+                  <li>• People with serious cardiovascular conditions should not use.</li>
+                  <li>• Those with skin sensitivity disorders should use with caution.</li>
                 </ul>
               </div>
             </ScrollReveal>

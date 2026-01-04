@@ -10,10 +10,10 @@ const ProductPreview = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="text-gradient">Ürünümüz</span>
+              <span className="text-gradient">Our Product</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Isıtma ve masaj teknolojisiyle donatılmış özel kemerimiz
+              Our special belt equipped with heating and massage technology
             </p>
           </div>
         </ScrollReveal>
@@ -29,11 +29,11 @@ const ProductPreview = () => {
             
             <div className="grid md:grid-cols-2 gap-8 p-8 md:p-12">
               <ScrollReveal direction="left" delay={0.2}>
-                <div className="relative aspect-square rounded-2xl overflow-hidden bg-secondary/50">
+                <div className="relative aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-secondary/50">
                   <img
-                    src="https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800"
+                    src="https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=600"
                     alt="Menstrual Relief Belt"
-                    className="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
               </ScrollReveal>
@@ -44,26 +44,25 @@ const ProductPreview = () => {
                     BEST SELLER
                   </span>
                   <h3 className="text-2xl md:text-3xl font-display font-bold mb-4">
-                    Regl Ağrı Kesici Isıtmalı Masaj Kemeri
+                    Menstrual Relief Heating Massage Belt
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Nazik ısı ve hedefli masajı birleştiren bu kemer, krampları
-                    hafifletir ve rahatsızlığı azaltır. İhtiyacınız olduğunda
-                    konfor sağlar.
+                    Combining gentle heat with targeted massage, this belt relieves 
+                    cramps and reduces discomfort. Provides comfort when you need it most.
                   </p>
                   
                   <div className="flex items-center gap-4 mb-8">
                     <span className="text-3xl font-bold text-primary">$24.95</span>
                     <span className="text-muted-foreground line-through">$49.95</span>
                     <span className="px-3 py-1 bg-primary/20 text-primary text-sm font-semibold rounded-full">
-                      %50 İndirim
+                      50% OFF
                     </span>
                   </div>
 
                   <motion.div
                     className="flex items-center gap-2 text-foreground font-medium group-hover:text-primary transition-colors"
                   >
-                    Ürünü İncele
+                    View Product
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </motion.div>
                 </div>

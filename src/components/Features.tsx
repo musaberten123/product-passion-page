@@ -4,23 +4,23 @@ import ScrollReveal from "./ScrollReveal";
 const features = [
   {
     icon: Thermometer,
-    title: "Hızlı Isınma",
-    description: "3-5 saniyede ısınır ve uzak kızılötesi dalgalar yayar",
+    title: "Rapid Heating",
+    description: "Heats up in 3-5 seconds and emits far-infrared waves",
   },
   {
     icon: Vibrate,
-    title: "4 Kademe Masaj",
-    description: "4 farklı titreşim modu ile kişiselleştirilmiş rahatlama",
+    title: "4-Level Massage",
+    description: "4 different vibration modes for personalized relaxation",
   },
   {
     icon: Battery,
-    title: "3 Sıcaklık Ayarı",
-    description: "50°C, 55°C ve 60°C arasında akıllı sıcaklık kontrolü",
+    title: "3 Heat Settings",
+    description: "Smart temperature control between 50°C, 55°C, and 60°C",
   },
   {
     icon: Shield,
-    title: "Güvenli Kullanım",
-    description: "Akıllı güvenlik çipi ile aşırı ısınmaya karşı koruma",
+    title: "Safe to Use",
+    description: "Smart safety chip protects against overheating",
   },
 ];
 
@@ -31,10 +31,10 @@ const Features = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              Neden <span className="text-gradient">WarmRelief?</span>
+              Why <span className="text-gradient">WarmRelief?</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              En son teknolojiyle tasarlanmış, konforunuz için optimize edilmiş
+              Designed with the latest technology, optimized for your comfort
             </p>
           </div>
         </ScrollReveal>

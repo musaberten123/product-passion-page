@@ -5,9 +5,9 @@ const Navbar = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: "Ana Sayfa", path: "/" },
-    { name: "Ürün", path: "/product" },
-    { name: "İletişim", path: "/contact" },
+    { name: "Home", path: "/" },
+    { name: "Product", path: "/product" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -62,7 +62,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium glow-sm hover:glow transition-all"
             >
-              Satın Al
+              Buy Now
             </motion.button>
           </Link>
         </div>

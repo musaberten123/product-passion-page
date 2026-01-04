@@ -18,8 +18,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Mesajınız gönderildi!",
-      description: "En kısa sürede size dönüş yapacağız.",
+      title: "Message sent!",
+      description: "We will get back to you as soon as possible.",
     });
     setFormData({ name: "", email: "", subject: "", message: "" });
   };
@@ -27,21 +27,21 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: "E-posta",
+      title: "Email",
       value: "info@warmrelief.com",
-      description: "7/24 mesaj gönderebilirsiniz",
+      description: "Send us a message 24/7",
     },
     {
       icon: Phone,
-      title: "Telefon",
-      value: "+90 555 123 45 67",
-      description: "Pzt-Cuma 09:00-18:00",
+      title: "Phone",
+      value: "+1 555 123 4567",
+      description: "Mon-Fri 9:00 AM - 6:00 PM",
     },
     {
       icon: MapPin,
-      title: "Adres",
-      value: "İstanbul, Türkiye",
-      description: "Merkez ofisimiz",
+      title: "Address",
+      value: "New York, USA",
+      description: "Our headquarters",
     },
   ];
 
@@ -55,14 +55,14 @@ const Contact = () => {
           <ScrollReveal>
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-4">
-                Bize Ulaşın
+                Get In Touch
               </span>
               <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
-                <span className="text-gradient">İletişim</span>
+                <span className="text-gradient">Contact Us</span>
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Sorularınız mı var? Size yardımcı olmaktan mutluluk duyarız.
-                Aşağıdaki formu doldurun veya iletişim bilgilerimizi kullanın.
+                Have questions? We would love to help you. Fill out the form below 
+                or use our contact information.
               </p>
             </div>
           </ScrollReveal>
@@ -76,14 +76,14 @@ const Contact = () => {
                     <MessageCircle className="w-5 h-5 text-primary" />
                   </div>
                   <h2 className="text-2xl font-display font-bold">
-                    Mesaj Gönderin
+                    Send a Message
                   </h2>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">Adınız</label>
+                      <label className="text-sm font-medium">Your Name</label>
                       <input
                         type="text"
                         required
@@ -92,11 +92,11 @@ const Contact = () => {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                        placeholder="Adınızı girin"
+                        placeholder="Enter your name"
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium">E-posta</label>
+                      <label className="text-sm font-medium">Email</label>
                       <input
                         type="email"
                         required
@@ -105,13 +105,13 @@ const Contact = () => {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                        placeholder="E-posta adresiniz"
+                        placeholder="Your email address"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Konu</label>
+                    <label className="text-sm font-medium">Subject</label>
                     <input
                       type="text"
                       required
@@ -120,12 +120,12 @@ const Contact = () => {
                         setFormData({ ...formData, subject: e.target.value })
                       }
                       className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                      placeholder="Mesajınızın konusu"
+                      placeholder="Subject of your message"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Mesajınız</label>
+                    <label className="text-sm font-medium">Message</label>
                     <textarea
                       required
                       rows={5}
@@ -134,7 +134,7 @@ const Contact = () => {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       className="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
-                      placeholder="Mesajınızı buraya yazın..."
+                      placeholder="Write your message here..."
                     />
                   </div>
 
@@ -145,7 +145,7 @@ const Contact = () => {
                     className="w-full py-4 bg-primary text-primary-foreground rounded-xl font-semibold flex items-center justify-center gap-2 glow-sm hover:glow transition-all"
                   >
                     <Send className="w-5 h-5" />
-                    Gönder
+                    Send Message
                   </motion.button>
                 </form>
               </div>
@@ -178,23 +178,23 @@ const Contact = () => {
                 {/* FAQ Teaser */}
                 <div className="p-6 bg-gradient-to-br from-primary/20 to-pink-500/10 rounded-2xl border border-primary/30">
                   <h3 className="text-xl font-display font-bold mb-3">
-                    Sıkça Sorulan Sorular
+                    Frequently Asked Questions
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Merak ettiğiniz soruların cevaplarını hızlıca bulabilirsiniz.
+                    Find quick answers to common questions.
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      Ürün garantisi var mı?
+                      Is there a product warranty?
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      Kargo süresi ne kadar?
+                      How long is shipping?
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary">•</span>
-                      İade koşulları nelerdir?
+                      What is the return policy?
                     </li>
                   </ul>
                 </div>

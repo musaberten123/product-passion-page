@@ -1,108 +1,101 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState, useCallback } from "react";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroAnimation from "@/components/HeroAnimation";
 import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import IntroAnimation from "@/components/IntroAnimation";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const Index = () => {
-  const [showIntro, setShowIntro] = useState(true);
-
-  const handleIntroComplete = useCallback(() => {
-    setShowIntro(false);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Intro Animation */}
-      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
-
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center pt-20 relative overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: showIntro ? 3.5 : 0.2 }}
-              className="text-center lg:text-left"
+      {/* Hero Section with Full-Screen Video Background */}
+      <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/50" />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-6"
             >
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: showIntro ? 3.7 : 0.4 }}
-                className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
-              >
-                ✨ Yeni Nesil Rahatlama
-              </motion.span>
+              ✨ Next Generation Relief
+            </motion.span>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6">
-                <span className="text-gradient">Ağrısız</span>
-                <br />
-                Günler Başlasın
-              </h1>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-6 text-white drop-shadow-2xl">
+              <span className="text-gradient">Pain-Free</span>
+              <br />
+              Days Ahead
+            </h1>
 
-              <p className="text-lg text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0">
-                Isıtma ve masaj teknolojisiyle donatılmış özel kemermiz, regl
-                dönemlerindeki ağrılarınızı hafifletir ve size konfor sağlar.
-              </p>
+            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-lg">
+              Experience ultimate comfort with our heating and massage belt. 
+              Designed to relieve menstrual cramps and provide soothing relief.
+            </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/product">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold glow hover:glow transition-all"
-                  >
-                    Şimdi Satın Al
-                  </motion.button>
-                </Link>
-                <Link to="/product">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 border border-border rounded-full font-semibold hover:border-primary hover:text-primary transition-all"
-                  >
-                    Daha Fazla Bilgi
-                  </motion.button>
-                </Link>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: showIntro ? 3.5 : 0.4 }}
-            >
-              <HeroAnimation />
-            </motion.div>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/product">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
+                >
+                  Shop Now
+                </motion.button>
+              </Link>
+              <Link to="/product">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4 border-2 border-white/50 backdrop-blur-sm rounded-full font-semibold text-lg text-white hover:bg-white/10 transition-all"
+                >
+                  Learn More
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: showIntro ? 4.5 : 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          transition={{ delay: 2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-muted-foreground"
+            className="flex flex-col items-center gap-2 text-white/80"
           >
-            <span className="text-sm">Keşfet</span>
+            <span className="text-sm">Discover</span>
             <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
@@ -123,11 +116,11 @@ const Index = () => {
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Konforunuz İçin <span className="text-gradient">Tasarlandı</span>
+                Designed For <span className="text-gradient">Your Comfort</span>
               </h2>
               <p className="text-muted-foreground mb-8 text-lg">
-                Binlerce mutlu müşterimiz gibi siz de rahatlamanın keyfini çıkarın.
-                Hemen sipariş verin, ücretsiz kargo fırsatını kaçırmayın!
+                Join thousands of happy customers and experience the relief you deserve. 
+                Order now and enjoy free shipping!
               </p>
               <Link to="/product">
                 <motion.button
@@ -135,7 +128,7 @@ const Index = () => {
                   whileTap={{ scale: 0.95 }}
                   className="px-10 py-5 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
                 >
-                  Hemen Satın Al - $24.95
+                  Buy Now - $24.95
                 </motion.button>
               </Link>
             </div>
