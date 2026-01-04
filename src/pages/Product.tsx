@@ -1,0 +1,276 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Check, Minus, Plus, Truck, Shield, RotateCcw } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
+
+const productImages = [
+  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
+  "https://ae01.alicdn.com/kf/S13afc97e8d654229b53b1b74a6ae7841B.jpg",
+  "https://ae01.alicdn.com/kf/S67958c0bf63946d69c25a11a09704b96z.jpg",
+  "https://ae01.alicdn.com/kf/S06edb5752ec947ca9c68a9e6c5e11257p.jpg",
+  "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg",
+  "https://ae01.alicdn.com/kf/Sdd36287f383740a7be48de49d65e96b5U.jpg",
+];
+
+const features = [
+  "Ayarlanabilir elastik kayış ve toka",
+  "3-5 saniyede hızlı ısınma",
+  "3 kademe akıllı sıcaklık ayarı (50/55/60°C)",
+  "4 kademe titreşimli masaj",
+  "Hafif tasarım (sadece 0.5 lbs)",
+  "Yumuşak ve nefes alabilir kumaş",
+  "52 inç'e kadar uzayabilen kayış",
+  "Uzak kızılötesi dalga teknolojisi",
+];
+
+const Product = () => {
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedColor, setSelectedColor] = useState("pink");
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Image Gallery */}
+            <ScrollReveal direction="left">
+              <div className="space-y-4">
+                <motion.div
+                  className="aspect-square rounded-2xl overflow-hidden bg-card border border-border"
+                  layoutId="productImage"
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={selectedImage}
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.3 }}
+                      src={productImages[selectedImage]}
+                      alt="Product"
+                      className="w-full h-full object-contain p-8"
+                    />
+                  </AnimatePresence>
+                </motion.div>
+
+                <div className="flex gap-3 overflow-x-auto pb-2">
+                  {productImages.map((img, index) => (
+                    <motion.button
+                      key={index}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setSelectedImage(index)}
+                      className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-colors ${
+                        selectedImage === index
+                          ? "border-primary"
+                          : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <img
+                        src={img}
+                        alt={`Product ${index + 1}`}
+                        className="w-full h-full object-contain p-2 bg-card"
+                      />
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Product Info */}
+            <ScrollReveal direction="right" delay={0.2}>
+              <div className="space-y-6">
+                <div>
+                  <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-semibold rounded-full mb-4">
+                    Best Seller
+                  </span>
+                  <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                    Regl Ağrı Kesici Isıtmalı Masaj Kemeri
+                  </h1>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Nazik ısı ve hedefli masajı birleştiren bu kemer, krampları ve
+                    rahatsızlığı hafifletir. Evde veya dışarıda kullanım için
+                    ayarlanabilir ve taşınabilir, ağrınızı nerede olursanız olun
+                    yönetmenize olanak tanır.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <span className="text-4xl font-bold text-primary">$24.95</span>
+                  <span className="text-xl text-muted-foreground line-through">
+                    $49.95
+                  </span>
+                  <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-semibold rounded-full">
+                    %50 Tasarruf
+                  </span>
+                </div>
+
+                {/* Color Selection */}
+                <div className="space-y-3">
+                  <label className="text-sm font-medium">Renk Seçimi</label>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => setSelectedColor("pink")}
+                      className={`w-10 h-10 rounded-full bg-pink-400 border-2 transition-all ${
+                        selectedColor === "pink"
+                          ? "border-foreground scale-110"
+                          : "border-transparent"
+                      }`}
+                    />
+                    <button
+                      onClick={() => setSelectedColor("white")}
+                      className={`w-10 h-10 rounded-full bg-white border-2 transition-all ${
+                        selectedColor === "white"
+                          ? "border-foreground scale-110"
+                          : "border-muted"
+                      }`}
+                    />
+                  </div>
+                </div>
+
+                {/* Quantity */}
+                <div className="space-y-3">
+                  <label className="text-sm font-medium">Adet</label>
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary transition-colors"
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="text-xl font-semibold w-8 text-center">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary transition-colors"
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Add to Cart */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
+                >
+                  Sepete Ekle - ${(24.95 * quantity).toFixed(2)}
+                </motion.button>
+
+                {/* Trust badges */}
+                <div className="grid grid-cols-3 gap-4 pt-4">
+                  <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
+                    <Truck className="w-6 h-6 text-primary mb-2" />
+                    <span className="text-xs text-muted-foreground">
+                      Ücretsiz Kargo
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
+                    <Shield className="w-6 h-6 text-primary mb-2" />
+                    <span className="text-xs text-muted-foreground">
+                      Güvenli Ödeme
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
+                    <RotateCcw className="w-6 h-6 text-primary mb-2" />
+                    <span className="text-xs text-muted-foreground">
+                      30 Gün İade
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Features Section */}
+          <section className="mt-24">
+            <ScrollReveal>
+              <h2 className="text-3xl font-display font-bold mb-8 text-center">
+                Ürün <span className="text-gradient">Özellikleri</span>
+              </h2>
+            </ScrollReveal>
+
+            <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              {features.map((feature, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <div className="flex items-center gap-3 p-4 bg-card rounded-xl border border-border">
+                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-4 h-4 text-primary" />
+                    </div>
+                    <span className="text-sm">{feature}</span>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+
+          {/* Product Images Gallery */}
+          <section className="mt-24">
+            <ScrollReveal>
+              <h2 className="text-3xl font-display font-bold mb-8 text-center">
+                Detaylı <span className="text-gradient">Görüntüler</span>
+              </h2>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                "https://ae01.alicdn.com/kf/Scac19bf8ac89440ca3fcfa73246b6fb3a.jpg",
+                "https://ae01.alicdn.com/kf/S5569eaeefc584500800ce71e0f6da55eh.jpg",
+                "https://ae01.alicdn.com/kf/S747e495455784f4f986da128984db4d6O.jpg",
+                "https://ae01.alicdn.com/kf/Sba522d488dfa4b3087b28853c353eb0cH.jpg",
+                "https://ae01.alicdn.com/kf/Sd78eb7ca75644bbe8689b0c222bf4e5a3.jpg",
+                "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg",
+              ].map((img, index) => (
+                <ScrollReveal key={index} delay={index * 0.1}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="aspect-square rounded-2xl overflow-hidden bg-card border border-border"
+                  >
+                    <img
+                      src={img}
+                      alt={`Detail ${index + 1}`}
+                      className="w-full h-full object-contain p-4"
+                    />
+                  </motion.div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+
+          {/* Safety Notes */}
+          <section className="mt-24">
+            <ScrollReveal>
+              <div className="max-w-3xl mx-auto p-8 bg-card rounded-2xl border border-border">
+                <h3 className="text-xl font-semibold mb-4 text-primary">
+                  ⚠️ Önemli Uyarılar
+                </h3>
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li>• Yüksek sıcaklık ayarını 8 dakikadan fazla kullanmayın.</li>
+                  <li>• Hassas cilt için kıyafet üzerinden kullanım önerilir.</li>
+                  <li>• Hamile kadınlar için uygun değildir.</li>
+                  <li>
+                    • Ciddi kardiyovasküler hastalığı olan kişiler kullanmamalıdır.
+                  </li>
+                  <li>
+                    • Cilt duyarlılığı bozukluğu olan kişiler dikkatli olmalıdır.
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
+          </section>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Product;
