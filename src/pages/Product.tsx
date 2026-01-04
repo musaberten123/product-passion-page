@@ -6,12 +6,12 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const productImages = [
-  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
-  "https://ae01.alicdn.com/kf/S13afc97e8d654229b53b1b74a6ae7841B.jpg",
-  "https://ae01.alicdn.com/kf/S67958c0bf63946d69c25a11a09704b96z.jpg",
-  "https://ae01.alicdn.com/kf/S06edb5752ec947ca9c68a9e6c5e11257p.jpg",
-  "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg",
-  "https://ae01.alicdn.com/kf/Sdd36287f383740a7be48de49d65e96b5U.jpg",
+  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=600",
+  "https://ae01.alicdn.com/kf/S13afc97e8d654229b53b1b74a6ae7841B.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S67958c0bf63946d69c25a11a09704b96z.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S06edb5752ec947ca9c68a9e6c5e11257p.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/Sdd36287f383740a7be48de49d65e96b5U.jpg_640x640.jpg",
 ];
 
 const features = [
@@ -41,7 +41,7 @@ const Product = () => {
             <ScrollReveal direction="left">
               <div className="space-y-4">
                 <motion.div
-                  className="aspect-square rounded-2xl overflow-hidden bg-card border border-border"
+                  className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden bg-card border border-border"
                   layoutId="productImage"
                 >
                   <AnimatePresence mode="wait">
@@ -53,19 +53,20 @@ const Product = () => {
                       transition={{ duration: 0.3 }}
                       src={productImages[selectedImage]}
                       alt="Product"
-                      className="w-full h-full object-contain p-8"
+                      className="w-full h-full object-contain p-6"
+                      loading="eager"
                     />
                   </AnimatePresence>
                 </motion.div>
 
-                <div className="flex gap-3 overflow-x-auto pb-2">
+                <div className="flex gap-3 overflow-x-auto pb-2 justify-center">
                   {productImages.map((img, index) => (
                     <motion.button
                       key={index}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedImage(index)}
-                      className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-colors ${
+                      className={`flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden border-2 transition-colors ${
                         selectedImage === index
                           ? "border-primary"
                           : "border-border hover:border-primary/50"
@@ -74,7 +75,8 @@ const Product = () => {
                       <img
                         src={img}
                         alt={`Product ${index + 1}`}
-                        className="w-full h-full object-contain p-2 bg-card"
+                        className="w-full h-full object-contain p-1 bg-card"
+                        loading="lazy"
                       />
                     </motion.button>
                   ))}
@@ -115,20 +117,24 @@ const Product = () => {
                   <label className="text-sm font-medium">Renk Seçimi</label>
                   <div className="flex gap-3">
                     <button
+                      type="button"
                       onClick={() => setSelectedColor("pink")}
                       className={`w-10 h-10 rounded-full bg-pink-400 border-2 transition-all ${
                         selectedColor === "pink"
                           ? "border-foreground scale-110"
                           : "border-transparent"
                       }`}
+                      aria-label="Pembe renk seç"
                     />
                     <button
+                      type="button"
                       onClick={() => setSelectedColor("white")}
-                      className={`w-10 h-10 rounded-full bg-white border-2 transition-all ${
+                      className={`w-10 h-10 rounded-full bg-gray-200 border-2 transition-all ${
                         selectedColor === "white"
                           ? "border-foreground scale-110"
                           : "border-muted"
                       }`}
+                      aria-label="Beyaz renk seç"
                     />
                   </div>
                 </div>
@@ -138,6 +144,7 @@ const Product = () => {
                   <label className="text-sm font-medium">Adet</label>
                   <div className="flex items-center gap-4">
                     <button
+                      type="button"
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary transition-colors"
                     >
@@ -147,6 +154,7 @@ const Product = () => {
                       {quantity}
                     </span>
                     <button
+                      type="button"
                       onClick={() => setQuantity(quantity + 1)}
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary transition-colors"
                     >
@@ -219,14 +227,14 @@ const Product = () => {
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {[
-                "https://ae01.alicdn.com/kf/Scac19bf8ac89440ca3fcfa73246b6fb3a.jpg",
-                "https://ae01.alicdn.com/kf/S5569eaeefc584500800ce71e0f6da55eh.jpg",
-                "https://ae01.alicdn.com/kf/S747e495455784f4f986da128984db4d6O.jpg",
-                "https://ae01.alicdn.com/kf/Sba522d488dfa4b3087b28853c353eb0cH.jpg",
-                "https://ae01.alicdn.com/kf/Sd78eb7ca75644bbe8689b0c222bf4e5a3.jpg",
-                "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg",
+                "https://ae01.alicdn.com/kf/Scac19bf8ac89440ca3fcfa73246b6fb3a.jpg_640x640.jpg",
+                "https://ae01.alicdn.com/kf/S5569eaeefc584500800ce71e0f6da55eh.jpg_640x640.jpg",
+                "https://ae01.alicdn.com/kf/S747e495455784f4f986da128984db4d6O.jpg_640x640.jpg",
+                "https://ae01.alicdn.com/kf/Sba522d488dfa4b3087b28853c353eb0cH.jpg_640x640.jpg",
+                "https://ae01.alicdn.com/kf/Sd78eb7ca75644bbe8689b0c222bf4e5a3.jpg_640x640.jpg",
+                "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg_640x640.jpg",
               ].map((img, index) => (
                 <ScrollReveal key={index} delay={index * 0.1}>
                   <motion.div
@@ -237,6 +245,7 @@ const Product = () => {
                       src={img}
                       alt={`Detail ${index + 1}`}
                       className="w-full h-full object-contain p-4"
+                      loading="lazy"
                     />
                   </motion.div>
                 </ScrollReveal>
