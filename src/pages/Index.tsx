@@ -28,9 +28,59 @@ const Index = () => {
             <source src={heroVideo} type="video/mp4" />
           </video>
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-6"
+            >
+              ✨ Next Generation Relief
+            </motion.span>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-6 text-white drop-shadow-2xl">
+              <span className="text-gradient">Pain-Free</span>
+              <br />
+              Days Ahead
+            </h1>
+
+            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-lg">
+              Experience ultimate comfort with our heating and massage belt. 
+              Designed to relieve menstrual cramps and provide soothing relief.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/product">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
+                >
+                  Shop Now
+                </motion.button>
+              </Link>
+              <Link to="/product">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-4 border-2 border-white/50 backdrop-blur-sm rounded-full font-semibold text-lg text-white hover:bg-white/10 transition-all"
+                >
+                  Learn More
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}
@@ -54,7 +104,7 @@ const Index = () => {
       {/* Marquee */}
       <Marquee />
 
-      {/* Product Preview - Shop Now Section */}
+      {/* Product Preview */}
       <ProductPreview />
 
       {/* Features */}
