@@ -12,7 +12,7 @@ const Marquee = () => {
 
   return (
     <div className="overflow-hidden bg-primary py-2.5 md:py-4">
-      <div className="flex whitespace-nowrap animate-[marquee_12s_linear_infinite]">
+      <div className="flex whitespace-nowrap animate-[marquee_5s_linear_infinite]">
         {[...items, ...items, ...items, ...items].map((item, index) => (
           <span
             key={index}
