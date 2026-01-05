@@ -14,14 +14,14 @@ import slide3 from "@/assets/slide-3-new.jpeg";
 
 // Slideshow order: Image 3 (pink bg) → Image 1 (pink belt) → "OR" text → Image 2 (white belt) → loop
 type SlideType = 
-  | { type: "image"; src: string; bgColor: string } 
+  | { type: "image"; src: string; bgColor: string; isFullWidth?: boolean } 
   | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide3, bgColor: "#f5b8c1" }, // Pink background image
-  { type: "image", src: slide1, bgColor: "#f5f5f5" }, // Pink belt on light bg
-  { type: "text", content: "OR" },                    // Black bg, white text
-  { type: "image", src: slide2, bgColor: "#ffffff" }, // White belt on white bg
+  { type: "image", src: slide3, bgColor: "#f0b4bc", isFullWidth: true },  // Pink background - full width
+  { type: "image", src: slide1, bgColor: "#fafafa", isFullWidth: false }, // Pink belt - centered
+  { type: "text", content: "OR" },
+  { type: "image", src: slide2, bgColor: "#ffffff", isFullWidth: false }, // White belt - centered
 ];
 
 const Index = () => {
@@ -66,18 +66,30 @@ const Index = () => {
               slide.type === "image" ? (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 1.05 }}
+                  initial={{ opacity: 0, scale: 1.02 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   className="absolute inset-0 w-full h-full flex items-center justify-center"
                   style={{ backgroundColor: slide.bgColor }}
                 >
-                  <img
-                    src={slide.src}
-                    alt="Product"
-                    className="max-w-[85%] max-h-[75%] sm:max-w-[75%] md:max-w-[65%] lg:max-w-[55%] object-contain"
-                  />
+                  {slide.isFullWidth ? (
+                    // Full width image (slide 3 with text)
+                    <img
+                      src={slide.src}
+                      alt="Product"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    // Centered product image with fixed container size
+                    <div className="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] flex items-center justify-center">
+                      <img
+                        src={slide.src}
+                        alt="Product"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  )}
                 </motion.div>
               ) : (
                 <motion.div
