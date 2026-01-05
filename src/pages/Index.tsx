@@ -8,22 +8,9 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import slide1 from "@/assets/slide-1.jpg";
-import slide2 from "@/assets/slide-2.jpg";
 import productHero from "@/assets/product-hero.jpg";
 
-// Slides: Product hero → Image 1 (centered) → "OR" text → Image 2 (centered)
-type SlideType = { type: "image"; src: string; fullscreen?: boolean } | { type: "text"; content: string };
-
-const heroSlides: SlideType[] = [
-  { type: "image", src: productHero, fullscreen: true },
-  { type: "image", src: slide1, fullscreen: false },
-  { type: "text", content: "OR" },
-  { type: "image", src: slide2, fullscreen: false },
-];
-
 const Index = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -32,14 +19,6 @@ const Index = () => {
   const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const heroScale = useTransform(scrollY, [0, 400], [1, 0.9]);
   const contentY = useTransform(scrollY, [0, 300], [0, -50]);
-
-  // Auto-cycle through slides - fast interval
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 1800);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleScrollClick = () => {
     contentRef.current?.scrollIntoView({ 
@@ -52,82 +31,36 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section - Fullscreen Slideshow with parallax */}
+      {/* Hero Section - Single product image with seamless background */}
       <motion.section 
         ref={heroRef}
         style={{ opacity: heroOpacity, scale: heroScale }}
-        className="h-screen w-full relative overflow-hidden bg-background"
+        className="h-screen w-full relative overflow-hidden"
       >
-        <AnimatePresence mode="wait">
-          {heroSlides.map((slide, index) =>
-            currentSlide === index ? (
-              slide.type === "image" ? (
-                slide.fullscreen ? (
-                  // Fullscreen product image - white/light background
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="absolute inset-0 w-full h-full bg-gradient-to-b from-white via-gray-50 to-gray-100 flex items-center justify-center"
-                  >
-                    <img
-                      src={slide.src}
-                      alt="Product"
-                      className="max-w-[85%] max-h-[70%] md:max-w-[60%] md:max-h-[75%] object-contain drop-shadow-2xl"
-                    />
-                  </motion.div>
-                ) : (
-                  // Centered smaller image (slides 1 and 2)
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-white"
-                  >
-                    <div className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] flex items-center justify-center">
-                      <img
-                        src={slide.src}
-                        alt="Product"
-                        className="w-full h-full object-contain drop-shadow-xl"
-                      />
-                    </div>
-                  </motion.div>
-                )
-              ) : (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
-                >
-                  <motion.span
-                    initial={{ scale: 0.3, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 1.8, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="text-white text-6xl sm:text-8xl md:text-[12rem] lg:text-[16rem] font-bold tracking-widest"
-                  >
-                    {slide.content}
-                  </motion.span>
-                </motion.div>
-              )
-            ) : null
-          )}
-        </AnimatePresence>
+        {/* Seamless gradient background matching image */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f8f8] via-[#f5f5f5] to-[#f0f0f0]" />
+        
+        {/* Product image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <img
+            src={productHero}
+            alt="Menstrual Relief Heating Belt"
+            className="max-w-[80%] max-h-[65%] sm:max-w-[70%] md:max-w-[55%] lg:max-w-[45%] object-contain drop-shadow-2xl"
+          />
+        </motion.div>
 
         {/* Scroll indicator */}
         <motion.button
           onClick={handleScrollClick}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 md:gap-2 text-foreground/60 z-10 cursor-pointer hover:text-foreground transition-colors duration-300 group"
+          transition={{ delay: 1, duration: 0.5 }}
+          className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 md:gap-2 text-gray-500 z-10 cursor-pointer hover:text-gray-800 transition-colors duration-300 group"
         >
           <motion.span 
             className="text-xs md:text-sm tracking-widest uppercase group-hover:tracking-[0.3em] transition-all duration-300"
