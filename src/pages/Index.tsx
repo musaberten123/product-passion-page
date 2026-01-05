@@ -18,7 +18,7 @@ type SlideType =
   | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide3, bgColor: "#f5d5d5", objectFit: "cover" },
+  { type: "image", src: slide3, bgColor: "#f5d5d5", objectFit: "contain", productSize: "w-full h-full" },
   { type: "image", src: slide1, bgColor: "#fefefe", objectFit: "contain", productSize: "max-w-[500px] max-h-[70vh]" },
   { type: "text", content: "OR" },
   { type: "image", src: slide2, bgColor: "#ffffff", objectFit: "contain", productSize: "max-w-[500px] max-h-[70vh]" },
@@ -61,19 +61,11 @@ const Index = () => {
             className="absolute inset-0 w-full h-full flex items-center justify-center"
             style={{ backgroundColor: currentSlideData.bgColor }}
           >
-            {currentSlideData.objectFit === "cover" ? (
-              <img
-                src={currentSlideData.src}
-                alt="Product"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <img
-                src={currentSlideData.src}
-                alt="Product"
-                className={`object-contain ${currentSlideData.productSize || ""}`}
-              />
-            )}
+            <img
+              src={currentSlideData.src}
+              alt="Product"
+              className={`object-contain ${currentSlideData.productSize || ""}`}
+            />
           </div>
         ) : (
           <div className="absolute inset-0 w-full h-full bg-black flex items-center justify-center">
