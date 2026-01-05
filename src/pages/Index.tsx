@@ -12,14 +12,14 @@ import slide1 from "@/assets/slide-1.jpg";
 import slide2 from "@/assets/slide-2.jpg";
 import slide3 from "@/assets/slide-3.jpeg";
 
-// Slides: Image 3 → Image 1 → "OR" text → Image 2
-type SlideType = { type: "image"; src: string } | { type: "text"; content: string };
+// Slides: Image 3 (fullscreen) → Image 1 (centered) → "OR" text → Image 2 (centered)
+type SlideType = { type: "image"; src: string; fullscreen?: boolean } | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide3 },
-  { type: "image", src: slide1 },
+  { type: "image", src: slide3, fullscreen: true },
+  { type: "image", src: slide1, fullscreen: false },
   { type: "text", content: "OR" },
-  { type: "image", src: slide2 },
+  { type: "image", src: slide2, fullscreen: false },
 ];
 
 const Index = () => {
@@ -43,21 +43,39 @@ const Index = () => {
           {heroSlides.map((slide, index) =>
             currentSlide === index ? (
               slide.type === "image" ? (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-white p-12 md:p-20 lg:p-32"
-                >
-                  <img
-                    src={slide.src}
-                    alt="Product"
-                    className="max-w-full max-h-full object-contain"
-                    style={{ maxWidth: "600px", maxHeight: "600px" }}
-                  />
-                </motion.div>
+                slide.fullscreen ? (
+                  // Fullscreen image (slide 3)
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full"
+                  >
+                    <img
+                      src={slide.src}
+                      alt="Product"
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                ) : (
+                  // Centered smaller image (slides 1 and 2)
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-white p-8 md:p-16"
+                  >
+                    <img
+                      src={slide.src}
+                      alt="Product"
+                      className="max-w-[70%] max-h-[70%] object-contain"
+                    />
+                  </motion.div>
+                )
               ) : (
                 <motion.div
                   key={index}
