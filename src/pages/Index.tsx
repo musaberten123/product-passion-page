@@ -8,14 +8,14 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
+import hero1 from "@/assets/hero-1.jpg";
+import hero2 from "@/assets/hero-2.jpg";
+import hero3 from "@/assets/hero-3.jpg";
+import hero4 from "@/assets/hero-4.webp";
+import hero5 from "@/assets/hero-5.webp";
+
 // Hero images that will cycle through like a GIF
-const heroImages = [
-  "https://ae01.alicdn.com/kf/Se1d825a2188140dab7e17e97b1dbb85dD.jpg",
-  "https://ae01.alicdn.com/kf/S620bc0cbe6894830a0ba7180dd165dd25.jpg",
-  "https://m.media-amazon.com/images/I/61WkuDKC5QL._AC_UF894,1000_QL80_.jpg",
-  "https://i.ebayimg.com/images/g/izgAAOSw5cplS3Gm/s-l140.webp",
-  "https://i.ebayimg.com/images/g/vUIAAOSwUVdlS3Gm/s-l140.webp",
-];
+const heroImages = [hero1, hero2, hero3, hero4, hero5];
 
 const Index = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
