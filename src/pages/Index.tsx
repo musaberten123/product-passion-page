@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
@@ -7,28 +8,52 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import heroVideo from "@/assets/hero-video.mp4";
+import heroWoman from "@/assets/hero-woman.jpg";
+
+// Hero images that will cycle through like a GIF
+const heroImages = [
+  heroWoman,
+  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=1200",
+  "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=1200",
+  "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=1200",
+  "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=1200",
+];
 
 const Index = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-cycle through images like a GIF
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section with Full-Screen Video Background */}
+      {/* Hero Section with Cycling Images like its24heartz.com */}
       <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        {/* Video Background */}
+        {/* Image Slideshow Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
+          {heroImages.map((img, index) => (
+            <motion.img
+              key={index}
+              src={img}
+              alt="Hero"
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: currentImageIndex === index ? 1 : 0,
+                scale: currentImageIndex === index ? 1 : 1.1
+              }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ))}
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/60" />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
