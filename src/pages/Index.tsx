@@ -44,19 +44,19 @@ const Index = () => {
             currentSlide === index ? (
               slide.type === "image" ? (
                 slide.fullscreen ? (
-                  // Fullscreen image (slide 3)
+                  // Fullscreen image (slide 3) - contain to show text
                   <motion.div
                     key={index}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full"
+                    className="absolute inset-0 w-full h-full bg-[#f5c4c0] flex items-center justify-center"
                   >
                     <img
                       src={slide.src}
                       alt="Product"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </motion.div>
                 ) : (
