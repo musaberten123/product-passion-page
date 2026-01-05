@@ -32,9 +32,13 @@ const ScrollReveal = ({
         y: 0,
         x: 0,
       }}
-      viewport={{ once: true, margin: "-100px" }}
+      exit={{
+        opacity: 0,
+        ...directionOffset[direction],
+      }}
+      viewport={{ once: false, amount: 0.3, margin: "-50px" }}
       transition={{
-        duration: 0.7,
+        duration: 0.5,
         delay,
         ease: [0.25, 0.1, 0.25, 1],
       }}
