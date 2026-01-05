@@ -7,12 +7,20 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import productReference from "@/assets/product-reference.webp";
 
-// Product images without boxes - clean product shots only
+// All product images - clean product shots
 const productImages = [
   productReference,
   "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=600",
-  "https://ae01.alicdn.com/kf/S5a4cc2d63e3746b19b81d5a08dfecef8d.jpg_640x640.jpg",
-  "https://ae01.alicdn.com/kf/S0c1b2d5e8fb14c6a8c1e7e3c7e7e7e7ey.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S13afc97e8d654229b53b1b74a6ae7841B.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S67958c0bf63946d69c25a11a09704b96z.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S06edb5752ec947ca9c68a9e6c5e11257p.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/Sdd36287f383740a7be48de49d65e96b5U.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/Scac19bf8ac89440ca3fcfa73246b6fb3a.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S5569eaeefc584500800ce71e0f6da55eh.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S747e495455784f4f986da128984db4d6O.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/Sba522d488dfa4b3087b28853c353eb0cH.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/Sd78eb7ca75644bbe8689b0c222bf4e5a3.jpg_640x640.jpg",
 ];
 
 const features = [
@@ -73,7 +81,7 @@ const Product = () => {
                   </AnimatePresence>
                 </motion.div>
 
-                <div className="flex gap-3 overflow-x-auto pb-2 justify-center">
+                <div className="flex gap-3 overflow-x-auto pb-2 justify-start px-2">
                   {productImages.map((img, index) => (
                     <motion.button
                       key={index}
@@ -228,6 +236,34 @@ const Product = () => {
                     </div>
                     <span className="text-sm">{feature}</span>
                   </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+
+          {/* Product Images Gallery */}
+          <section className="mt-24">
+            <ScrollReveal>
+              <h2 className="text-3xl font-display font-bold mb-8 text-center">
+                Detailed <span className="text-gradient">Images</span>
+              </h2>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {productImages.slice(1).map((img, index) => (
+                <ScrollReveal key={index} delay={index * 0.05}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    onClick={() => setSelectedImage(index + 1)}
+                    className="aspect-square rounded-2xl overflow-hidden bg-card border border-border cursor-pointer"
+                  >
+                    <img
+                      src={img}
+                      alt={`Detail ${index + 1}`}
+                      className="w-full h-full object-contain p-4"
+                      loading="lazy"
+                    />
+                  </motion.div>
                 </ScrollReveal>
               ))}
             </div>
