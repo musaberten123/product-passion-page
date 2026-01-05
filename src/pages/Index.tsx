@@ -69,7 +69,7 @@ const Index = () => {
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full flex items-center justify-center bg-white"
                   >
-                    <div className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px] flex items-center justify-center">
+                    <div className="w-[450px] h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] flex items-center justify-center">
                       <img
                         src={slide.src}
                         alt="Product"
