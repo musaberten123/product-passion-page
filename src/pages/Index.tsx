@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -8,22 +8,27 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import hero4 from "@/assets/hero-4.webp";
-import hero5 from "@/assets/hero-5.webp";
+import slide1 from "@/assets/slide-1.jpg";
+import slide2 from "@/assets/slide-2.jpg";
+import slide3 from "@/assets/slide-3.jpeg";
 
-// Hero images that will cycle through like a GIF
-const heroImages = [hero1, hero2, hero3, hero4, hero5];
+// Slides: Image 3 → Image 1 → "OR" text → Image 2
+type SlideType = { type: "image"; src: string } | { type: "text"; content: string };
+
+const heroSlides: SlideType[] = [
+  { type: "image", src: slide3 },
+  { type: "image", src: slide1 },
+  { type: "text", content: "OR" },
+  { type: "image", src: slide2 },
+];
 
 const Index = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-cycle through images like a GIF
+  // Auto-cycle through slides
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
@@ -32,79 +37,49 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section with Cycling Images like its24heartz.com */}
-      <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        {/* Image Slideshow Background */}
-        <div className="absolute inset-0 z-0">
-          {heroImages.map((img, index) => (
-            <motion.img
-              key={index}
-              src={img}
-              alt="Hero"
-              initial={{ opacity: 0 }}
-              animate={{ 
-                opacity: currentImageIndex === index ? 1 : 0,
-                scale: currentImageIndex === index ? 1 : 1.1
-              }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          ))}
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/60" />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        </div>
-
-        {/* Hero Content */}
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-6"
-            >
-              ✨ Next Generation Relief
-            </motion.span>
-
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-6 text-white drop-shadow-2xl">
-              <span className="text-gradient">Pain-Free</span>
-              <br />
-              Days Ahead
-            </h1>
-
-            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-lg">
-              Experience ultimate comfort with our heating and massage belt. 
-              Designed to relieve menstrual cramps and provide soothing relief.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/product">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
+      {/* Hero Section - Fullscreen Slideshow */}
+      <section className="h-screen w-full relative overflow-hidden">
+        <AnimatePresence mode="wait">
+          {heroSlides.map((slide, index) =>
+            currentSlide === index ? (
+              slide.type === "image" ? (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full"
                 >
-                  Shop Now
-                </motion.button>
-              </Link>
-              <Link to="/product">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 border-2 border-white/50 backdrop-blur-sm rounded-full font-semibold text-lg text-white hover:bg-white/10 transition-all"
+                  <img
+                    src={slide.src}
+                    alt="Product"
+                    className="w-full h-full object-contain bg-white"
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
                 >
-                  Learn More
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
+                  <motion.span
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="text-white text-8xl md:text-[12rem] lg:text-[16rem] font-bold tracking-widest"
+                  >
+                    {slide.content}
+                  </motion.span>
+                </motion.div>
+              )
+            ) : null
+          )}
+        </AnimatePresence>
 
         {/* Scroll indicator */}
         <motion.div
@@ -116,9 +91,9 @@ const Index = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-white/80"
+            className="flex flex-col items-center gap-2 text-black/80"
           >
-            <span className="text-sm">Discover</span>
+            <span className="text-sm font-medium">Scroll</span>
             <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
