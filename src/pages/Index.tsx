@@ -38,23 +38,24 @@ const Index = () => {
       <Navbar />
 
       {/* Hero Section - Fullscreen Slideshow */}
-      <section className="h-screen w-full relative overflow-hidden">
+      <section className="h-screen w-full relative overflow-hidden bg-white">
         <AnimatePresence mode="wait">
           {heroSlides.map((slide, index) =>
             currentSlide === index ? (
               slide.type === "image" ? (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 1.1 }}
+                  initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-white p-12 md:p-20 lg:p-32"
                 >
                   <img
                     src={slide.src}
                     alt="Product"
-                    className="w-full h-full object-contain bg-white"
+                    className="max-w-full max-h-full object-contain"
+                    style={{ maxWidth: "600px", maxHeight: "600px" }}
                   />
                 </motion.div>
               ) : (
