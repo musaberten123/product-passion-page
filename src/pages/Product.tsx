@@ -7,9 +7,12 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import productReference from "@/assets/product-reference.webp";
 
+// Product images without boxes - clean product shots only
 const productImages = [
   productReference,
   "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=600",
+  "https://ae01.alicdn.com/kf/S5a4cc2d63e3746b19b81d5a08dfecef8d.jpg_640x640.jpg",
+  "https://ae01.alicdn.com/kf/S0c1b2d5e8fb14c6a8c1e7e3c7e7e7e7ey.jpg_640x640.jpg",
 ];
 
 const features = [
@@ -23,7 +26,7 @@ const features = [
   "Far-infrared wave technology",
 ];
 
-const PRICE = 19.95;
+const PRICE = 25;
 
 const Product = () => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -115,7 +118,7 @@ const Product = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-4xl font-bold text-primary">£{PRICE.toFixed(2)}</span>
                   <span className="text-xl text-muted-foreground line-through">
-                    £39.95
+                    £50.00
                   </span>
                   <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-semibold rounded-full">
                     Save 50%

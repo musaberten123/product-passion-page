@@ -82,7 +82,7 @@ const CartDrawer = () => {
                       <div className="flex-1 min-w-0">
                         <h4 className="font-medium text-sm truncate">{item.name}</h4>
                         <p className="text-xs text-muted-foreground capitalize">{item.color}</p>
-                        <p className="text-primary font-semibold mt-1">£{item.price.toFixed(2)}</p>
+                        <p className="text-primary font-semibold mt-1">£{(item.price * item.quantity).toFixed(2)}</p>
                       </div>
                       <div className="flex flex-col items-end justify-between">
                         <button
