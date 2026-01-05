@@ -18,10 +18,10 @@ type SlideType =
   | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide3, bgColor: "#f0b4bc", isFullWidth: true },  // Pink background - full width
-  { type: "image", src: slide1, bgColor: "#fafafa", isFullWidth: false }, // Pink belt - centered
+  { type: "image", src: slide3, bgColor: "#f0b4bc", isFullWidth: true },  // Pink background - show with text
+  { type: "image", src: slide1, bgColor: "#f7f7f7", isFullWidth: false }, // Pink belt - match exact bg
   { type: "text", content: "OR" },
-  { type: "image", src: slide2, bgColor: "#ffffff", isFullWidth: false }, // White belt - centered
+  { type: "image", src: slide2, bgColor: "#ffffff", isFullWidth: false }, // White belt - pure white
 ];
 
 const Index = () => {
@@ -74,19 +74,21 @@ const Index = () => {
                   style={{ backgroundColor: slide.bgColor }}
                 >
                   {slide.isFullWidth ? (
-                    // Full width image (slide 3 with text)
+                    // Full width image (slide 3 with text) - contain to show text
                     <img
                       src={slide.src}
                       alt="Product"
-                      className="w-full h-full object-cover"
+                      className="max-w-full max-h-full object-contain"
+                      style={{ imageRendering: "auto" }}
                     />
                   ) : (
                     // Centered product image with fixed container size
-                    <div className="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] flex items-center justify-center">
+                    <div className="w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[520px] md:h-[520px] lg:w-[620px] lg:h-[620px] flex items-center justify-center">
                       <img
                         src={slide.src}
                         alt="Product"
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-contain drop-shadow-lg"
+                        style={{ imageRendering: "auto" }}
                       />
                     </div>
                   )}
