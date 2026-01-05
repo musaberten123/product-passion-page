@@ -1,8 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ShoppingBag } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const Navbar = () => {
   const location = useLocation();
+  const { totalItems, setIsCartOpen } = useCart();
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -56,15 +59,35 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <Link to="/product">
+          <div className="flex items-center gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium glow-sm hover:glow transition-all"
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 rounded-full border border-border hover:border-primary transition-colors"
             >
-              Buy Now
+              <ShoppingBag className="w-5 h-5" />
+              {totalItems > 0 && (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-primary-foreground text-xs font-bold rounded-full flex items-center justify-center"
+                >
+                  {totalItems}
+                </motion.span>
+              )}
             </motion.button>
-          </Link>
+
+            <Link to="/product">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium glow-sm hover:glow transition-all"
+              >
+                Buy Now
+              </motion.button>
+            </Link>
+          </div>
         </div>
       </div>
     </motion.nav>
