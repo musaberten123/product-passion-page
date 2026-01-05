@@ -18,10 +18,10 @@ type SlideType =
   | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide3, bgColor: "#f0b4bc", isFullWidth: true },  // Pink background - show with text
-  { type: "image", src: slide1, bgColor: "#f7f7f7", isFullWidth: false }, // Pink belt - match exact bg
+  { type: "image", src: slide3, bgColor: "#f0b4bc", isFullWidth: true },  // Pink background with text
+  { type: "image", src: slide1, bgColor: "#fefefe", isFullWidth: false }, // Pink belt - near white
   { type: "text", content: "OR" },
-  { type: "image", src: slide2, bgColor: "#ffffff", isFullWidth: false }, // White belt - pure white
+  { type: "image", src: slide2, bgColor: "#fefefe", isFullWidth: false }, // White belt - near white
 ];
 
 const Index = () => {
