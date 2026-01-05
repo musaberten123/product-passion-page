@@ -11,10 +11,10 @@ const ProductPreview = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-              <span className="text-gradient">Our Product</span>
+              <span className="text-gradient">Shop Now</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our special belt equipped with heating and massage technology
+              Experience relief with our heating and massage technology
             </p>
           </div>
         </ScrollReveal>
@@ -53,8 +53,8 @@ const ProductPreview = () => {
                   </p>
                   
                   <div className="flex items-center gap-4 mb-8">
-                    <span className="text-3xl font-bold text-primary">£19.95</span>
-                    <span className="text-muted-foreground line-through">£39.95</span>
+                    <span className="text-3xl font-bold text-primary">£25.00</span>
+                    <span className="text-muted-foreground line-through">£50.00</span>
                     <span className="px-3 py-1 bg-primary/20 text-primary text-sm font-semibold rounded-full">
                       50% OFF
                     </span>
