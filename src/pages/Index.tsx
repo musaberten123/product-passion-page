@@ -54,11 +54,11 @@ const Index = () => {
 
       <motion.section 
         style={{ opacity: heroOpacity }}
-        className="h-screen w-full relative overflow-hidden"
+        className="h-screen w-full relative overflow-hidden pt-16 md:pt-20"
       >
         {currentSlideData.type === "image" ? (
           <div 
-            className="absolute inset-0 w-full h-full flex items-center justify-center"
+            className="w-full h-full flex items-center justify-center"
             style={{ backgroundColor: currentSlideData.bgColor }}
           >
             <img
@@ -68,7 +68,7 @@ const Index = () => {
             />
           </div>
         ) : (
-          <div className="absolute inset-0 w-full h-full bg-black flex items-center justify-center">
+          <div className="w-full h-full bg-black flex items-center justify-center">
             <span className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
               {currentSlideData.content}
             </span>
