@@ -8,15 +8,13 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import heroWoman from "@/assets/hero-woman.jpg";
-
 // Hero images that will cycle through like a GIF
 const heroImages = [
-  heroWoman,
-  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=1200",
-  "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=1200",
-  "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=1200",
-  "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=1200",
+  "https://ae01.alicdn.com/kf/Se1d825a2188140dab7e17e97b1dbb85dD.jpg",
+  "https://ae01.alicdn.com/kf/S620bc0cbe6894830a0ba7180dd165dd25.jpg",
+  "https://m.media-amazon.com/images/I/61WkuDKC5QL._AC_UF894,1000_QL80_.jpg",
+  "https://i.ebayimg.com/images/g/izgAAOSw5cplS3Gm/s-l140.webp",
+  "https://i.ebayimg.com/images/g/vUIAAOSwUVdlS3Gm/s-l140.webp",
 ];
 
 const Index = () => {
