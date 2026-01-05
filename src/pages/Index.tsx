@@ -8,9 +8,24 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import productHero from "@/assets/product-hero.jpg";
+import slide1 from "@/assets/slide-1-new.jpg";
+import slide2 from "@/assets/slide-2-new.jpg";
+import slide3 from "@/assets/slide-3-new.jpeg";
+
+// Slideshow order: Image 3 (pink bg) → Image 1 (pink belt) → "OR" text → Image 2 (white belt) → loop
+type SlideType = 
+  | { type: "image"; src: string; bgColor: string } 
+  | { type: "text"; content: string };
+
+const heroSlides: SlideType[] = [
+  { type: "image", src: slide3, bgColor: "#f5b8c1" }, // Pink background image
+  { type: "image", src: slide1, bgColor: "#f5f5f5" }, // Pink belt on light bg
+  { type: "text", content: "OR" },                    // Black bg, white text
+  { type: "image", src: slide2, bgColor: "#ffffff" }, // White belt on white bg
+];
 
 const Index = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -19,6 +34,14 @@ const Index = () => {
   const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
   const heroScale = useTransform(scrollY, [0, 400], [1, 0.9]);
   const contentY = useTransform(scrollY, [0, 300], [0, -50]);
+
+  // Auto-cycle through slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleScrollClick = () => {
     contentRef.current?.scrollIntoView({ 
@@ -31,39 +54,65 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section - Single product image with seamless background */}
+      {/* Hero Section - Slideshow */}
       <motion.section 
         ref={heroRef}
         style={{ opacity: heroOpacity, scale: heroScale }}
         className="h-screen w-full relative overflow-hidden"
       >
-        {/* Seamless gradient background matching image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f8f8] via-[#f5f5f5] to-[#f0f0f0]" />
-        
-        {/* Product image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute inset-0 flex items-center justify-center"
-        >
-          <img
-            src={productHero}
-            alt="Menstrual Relief Heating Belt"
-            className="max-w-[80%] max-h-[65%] sm:max-w-[70%] md:max-w-[55%] lg:max-w-[45%] object-contain drop-shadow-2xl"
-          />
-        </motion.div>
+        <AnimatePresence mode="wait">
+          {heroSlides.map((slide, index) =>
+            currentSlide === index ? (
+              slide.type === "image" ? (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="absolute inset-0 w-full h-full flex items-center justify-center"
+                  style={{ backgroundColor: slide.bgColor }}
+                >
+                  <img
+                    src={slide.src}
+                    alt="Product"
+                    className="max-w-[85%] max-h-[75%] sm:max-w-[75%] md:max-w-[65%] lg:max-w-[55%] object-contain"
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
+                >
+                  <motion.span
+                    initial={{ scale: 0.3, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 1.5, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest"
+                  >
+                    {slide.content}
+                  </motion.span>
+                </motion.div>
+              )
+            ) : null
+          )}
+        </AnimatePresence>
 
         {/* Scroll indicator */}
         <motion.button
           onClick={handleScrollClick}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 md:gap-2 text-gray-500 z-10 cursor-pointer hover:text-gray-800 transition-colors duration-300 group"
+          transition={{ delay: 1.5, duration: 0.5 }}
+          className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 md:gap-2 text-gray-600 z-10 cursor-pointer hover:text-gray-900 transition-colors duration-300 group mix-blend-difference"
         >
           <motion.span 
-            className="text-xs md:text-sm tracking-widest uppercase group-hover:tracking-[0.3em] transition-all duration-300"
+            className="text-xs md:text-sm tracking-widest uppercase text-white group-hover:tracking-[0.3em] transition-all duration-300"
           >
             Scroll
           </motion.span>
@@ -71,7 +120,7 @@ const Index = () => {
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ChevronDown className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-125 transition-transform duration-300" />
+            <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:scale-125 transition-transform duration-300" />
           </motion.div>
         </motion.button>
       </motion.section>
