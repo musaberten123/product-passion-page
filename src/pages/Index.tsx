@@ -66,32 +66,17 @@ const Index = () => {
               slide.type === "image" ? (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="absolute inset-0 w-full h-full flex items-center justify-center"
-                  style={{ backgroundColor: slide.bgColor }}
+                  className="absolute inset-0 w-full h-full"
                 >
-                  {slide.isFullWidth ? (
-                    // Full width image (slide 3 with text) - contain to show text
-                    <img
-                      src={slide.src}
-                      alt="Product"
-                      className="max-w-full max-h-full object-contain"
-                      style={{ imageRendering: "auto" }}
-                    />
-                  ) : (
-                    // Centered product image with fixed container size
-                    <div className="w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[520px] md:h-[520px] lg:w-[620px] lg:h-[620px] flex items-center justify-center">
-                      <img
-                        src={slide.src}
-                        alt="Product"
-                        className="w-full h-full object-contain drop-shadow-lg"
-                        style={{ imageRendering: "auto" }}
-                      />
-                    </div>
-                  )}
+                  <img
+                    src={slide.src}
+                    alt="Product"
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
               ) : (
                 <motion.div
