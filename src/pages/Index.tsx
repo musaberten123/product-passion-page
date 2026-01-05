@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
@@ -24,14 +24,22 @@ const heroSlides: SlideType[] = [
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  // Auto-cycle through slides
+  // Auto-cycle through slides - faster interval (1.5s instead of 2.5s)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 2500);
+    }, 1500);
     return () => clearInterval(interval);
   }, []);
+
+  const handleScrollClick = () => {
+    contentRef.current?.scrollIntoView({ 
+      behavior: "smooth",
+      block: "start"
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -50,7 +58,7 @@ const Index = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full bg-[#f5c4c0] flex items-center justify-center"
                   >
                     <img
@@ -66,7 +74,7 @@ const Index = () => {
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="absolute inset-0 w-full h-full flex items-center justify-center bg-white"
                   >
                     <div className="w-[450px] h-[450px] md:w-[550px] md:h-[550px] lg:w-[650px] lg:h-[650px] flex items-center justify-center">
@@ -84,14 +92,14 @@ const Index = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
                 >
                   <motion.span
                     initial={{ scale: 0.5, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 1.5, opacity: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
                     className="text-white text-8xl md:text-[12rem] lg:text-[16rem] font-bold tracking-widest"
                   >
                     {slide.content}
@@ -102,60 +110,63 @@ const Index = () => {
           )}
         </AnimatePresence>
 
-        {/* Scroll indicator */}
-        <motion.div
+        {/* Scroll indicator - clickable with smooth scroll */}
+        <motion.button
+          onClick={handleScrollClick}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-foreground/60 z-10 cursor-pointer hover:text-foreground transition-colors duration-300 group"
         >
+          <motion.span 
+            className="text-sm tracking-widest uppercase group-hover:tracking-[0.3em] transition-all duration-300"
+          >
+            Scroll
+          </motion.span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-black/80"
+            transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <span className="text-sm font-medium">Scroll</span>
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-5 h-5 group-hover:scale-125 transition-transform duration-300" />
           </motion.div>
-        </motion.div>
+        </motion.button>
       </section>
 
-      {/* Marquee */}
-      <Marquee />
+      {/* Content section with ref for smooth scroll target */}
+      <div ref={contentRef}>
+        <Marquee />
 
-      {/* Product Preview */}
-      <ProductPreview />
+        <ProductPreview />
 
-      {/* Features */}
-      <Features />
+        <Features />
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-t from-card to-background">
-        <div className="container mx-auto px-6">
-          <ScrollReveal>
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Designed For <span className="text-gradient">Your Comfort</span>
-              </h2>
-              <p className="text-muted-foreground mb-8 text-lg">
-                Join thousands of happy customers and experience the relief you deserve. 
-                Order now and enjoy free UK shipping!
-              </p>
-              <Link to="/product">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-5 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
-                >
-                  Buy Now - £25.00
-                </motion.button>
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+        {/* CTA Section */}
+        <section className="py-24 md:py-32 bg-muted/30">
+          <div className="container mx-auto px-4 md:px-8">
+            <ScrollReveal>
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-light mb-6">
+                  Discover Your Next Favorite
+                </h2>
+                <p className="text-muted-foreground text-lg mb-8">
+                  Minimalist design meets exceptional quality in every piece we create.
+                </p>
+                <Link to="/product">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-foreground text-background font-medium tracking-wider hover:bg-foreground/90 transition-colors"
+                  >
+                    Buy Now
+                  </motion.button>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };
