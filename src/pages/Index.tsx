@@ -14,14 +14,14 @@ import slide3 from "@/assets/slide-3-new.jpeg";
 
 // Slideshow order: Image 3 → Image 1 → "OR" → Image 2 → loop
 type SlideType = 
-  | { type: "image"; src: string } 
+  | { type: "image"; src: string; bgColor: string; objectFit: "cover" | "contain"; productSize?: string } 
   | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide3 },
-  { type: "image", src: slide1 },
+  { type: "image", src: slide3, bgColor: "#f5d5d5", objectFit: "cover" },
+  { type: "image", src: slide1, bgColor: "#fefefe", objectFit: "contain", productSize: "max-w-[500px] max-h-[70vh]" },
   { type: "text", content: "OR" },
-  { type: "image", src: slide2 },
+  { type: "image", src: slide2, bgColor: "#ffffff", objectFit: "contain", productSize: "max-w-[500px] max-h-[70vh]" },
 ];
 
 const Index = () => {
@@ -57,12 +57,23 @@ const Index = () => {
         className="h-screen w-full relative overflow-hidden"
       >
         {currentSlideData.type === "image" ? (
-          <div className="absolute inset-0 w-full h-full">
-            <img
-              src={currentSlideData.src}
-              alt="Product"
-              className="w-full h-full object-contain"
-            />
+          <div 
+            className="absolute inset-0 w-full h-full flex items-center justify-center"
+            style={{ backgroundColor: currentSlideData.bgColor }}
+          >
+            {currentSlideData.objectFit === "cover" ? (
+              <img
+                src={currentSlideData.src}
+                alt="Product"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <img
+                src={currentSlideData.src}
+                alt="Product"
+                className={`object-contain ${currentSlideData.productSize || ""}`}
+              />
+            )}
           </div>
         ) : (
           <div className="absolute inset-0 w-full h-full bg-black flex items-center justify-center">
