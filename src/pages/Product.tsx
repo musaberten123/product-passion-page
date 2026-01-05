@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Minus, Plus, Truck, Shield, RotateCcw } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import productReference from "@/assets/product-reference.webp";
 
 const productImages = [
+  productReference,
   "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=600",
-  "https://ae01.alicdn.com/kf/S13afc97e8d654229b53b1b74a6ae7841B.jpg_640x640.jpg",
-  "https://ae01.alicdn.com/kf/S67958c0bf63946d69c25a11a09704b96z.jpg_640x640.jpg",
-  "https://ae01.alicdn.com/kf/S06edb5752ec947ca9c68a9e6c5e11257p.jpg_640x640.jpg",
-  "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg_640x640.jpg",
-  "https://ae01.alicdn.com/kf/Sdd36287f383740a7be48de49d65e96b5U.jpg_640x640.jpg",
 ];
 
 const features = [
@@ -25,10 +23,23 @@ const features = [
   "Far-infrared wave technology",
 ];
 
+const PRICE = 19.95;
+
 const Product = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("pink");
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({
+      name: "Menstrual Relief Heating Massage Belt",
+      price: PRICE,
+      quantity,
+      color: selectedColor,
+      image: productImages[0],
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,9 +113,9 @@ const Product = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <span className="text-4xl font-bold text-primary">$24.95</span>
+                  <span className="text-4xl font-bold text-primary">£{PRICE.toFixed(2)}</span>
                   <span className="text-xl text-muted-foreground line-through">
-                    $49.95
+                    £39.95
                   </span>
                   <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-semibold rounded-full">
                     Save 50%
@@ -113,7 +124,7 @@ const Product = () => {
 
                 {/* Color Selection */}
                 <div className="space-y-3">
-                  <label className="text-sm font-medium">Color</label>
+                  <label className="text-sm font-medium">Colour</label>
                   <div className="flex gap-3">
                     <button
                       type="button"
@@ -123,7 +134,7 @@ const Product = () => {
                           ? "border-foreground scale-110"
                           : "border-transparent"
                       }`}
-                      aria-label="Select pink color"
+                      aria-label="Select pink colour"
                     />
                     <button
                       type="button"
@@ -133,7 +144,7 @@ const Product = () => {
                           ? "border-foreground scale-110"
                           : "border-muted"
                       }`}
-                      aria-label="Select white color"
+                      aria-label="Select white colour"
                     />
                   </div>
                 </div>
@@ -166,9 +177,10 @@ const Product = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={handleAddToCart}
                   className="w-full py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
                 >
-                  Add to Cart - ${(24.95 * quantity).toFixed(2)}
+                  Add to Basket - £{(PRICE * quantity).toFixed(2)}
                 </motion.button>
 
                 {/* Trust badges */}
@@ -176,7 +188,7 @@ const Product = () => {
                   <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
                     <Truck className="w-6 h-6 text-primary mb-2" />
                     <span className="text-xs text-muted-foreground">
-                      Free Shipping
+                      Free UK Shipping
                     </span>
                   </div>
                   <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
@@ -213,40 +225,6 @@ const Product = () => {
                     </div>
                     <span className="text-sm">{feature}</span>
                   </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </section>
-
-          {/* Product Images Gallery */}
-          <section className="mt-24">
-            <ScrollReveal>
-              <h2 className="text-3xl font-display font-bold mb-8 text-center">
-                Detailed <span className="text-gradient">Images</span>
-              </h2>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              {[
-                "https://ae01.alicdn.com/kf/Scac19bf8ac89440ca3fcfa73246b6fb3a.jpg_640x640.jpg",
-                "https://ae01.alicdn.com/kf/S5569eaeefc584500800ce71e0f6da55eh.jpg_640x640.jpg",
-                "https://ae01.alicdn.com/kf/S747e495455784f4f986da128984db4d6O.jpg_640x640.jpg",
-                "https://ae01.alicdn.com/kf/Sba522d488dfa4b3087b28853c353eb0cH.jpg_640x640.jpg",
-                "https://ae01.alicdn.com/kf/Sd78eb7ca75644bbe8689b0c222bf4e5a3.jpg_640x640.jpg",
-                "https://ae01.alicdn.com/kf/S9fc3e5bef3a24ca08ca6ba7706724998I.jpg_640x640.jpg",
-              ].map((img, index) => (
-                <ScrollReveal key={index} delay={index * 0.1}>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="aspect-square rounded-2xl overflow-hidden bg-card border border-border"
-                  >
-                    <img
-                      src={img}
-                      alt={`Detail ${index + 1}`}
-                      className="w-full h-full object-contain p-4"
-                      loading="lazy"
-                    />
-                  </motion.div>
                 </ScrollReveal>
               ))}
             </div>

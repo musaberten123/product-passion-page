@@ -7,80 +7,88 @@ import ProductPreview from "@/components/ProductPreview";
 import Features from "@/components/Features";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
-import heroVideo from "@/assets/hero-video.mp4";
+import productImage from "@/assets/product-reference.webp";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section with Full-Screen Video Background */}
+      {/* Hero Section with Product Image */}
       <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/50" />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-        </div>
-
+        {/* Background gradient */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-card via-background to-background" />
+        
         {/* Hero Content */}
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-6"
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-center lg:text-left"
             >
-              ✨ Next Generation Relief
-            </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full text-primary text-sm font-medium mb-6"
+              >
+                ✨ Next Generation Relief
+              </motion.span>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-6 text-white drop-shadow-2xl">
-              <span className="text-gradient">Pain-Free</span>
-              <br />
-              Days Ahead
-            </h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6">
+                <span className="text-gradient">Pain-Free</span>
+                <br />
+                Days Ahead
+              </h1>
 
-            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow-lg">
-              Experience ultimate comfort with our heating and massage belt. 
-              Designed to relieve menstrual cramps and provide soothing relief.
-            </p>
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl">
+                Experience ultimate comfort with our heating and massage belt. 
+                Designed to relieve menstrual cramps and provide soothing relief.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/product">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
-                >
-                  Shop Now
-                </motion.button>
-              </Link>
-              <Link to="/product">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 border-2 border-white/50 backdrop-blur-sm rounded-full font-semibold text-lg text-white hover:bg-white/10 transition-all"
-                >
-                  Learn More
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link to="/product">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
+                  >
+                    Shop Now
+                  </motion.button>
+                </Link>
+                <Link to="/product">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 border-2 border-border rounded-full font-semibold text-lg hover:bg-card transition-all"
+                  >
+                    Learn More
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Product Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative"
+            >
+              <div className="relative max-w-lg mx-auto">
+                {/* Glow effect behind image */}
+                <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75" />
+                <img
+                  src={productImage}
+                  alt="Menstrual Relief Heating Massage Belt"
+                  className="relative w-full h-auto object-contain"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
@@ -93,7 +101,7 @@ const Index = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-white/80"
+            className="flex flex-col items-center gap-2 text-muted-foreground"
           >
             <span className="text-sm">Discover</span>
             <ChevronDown className="w-5 h-5" />
@@ -120,7 +128,7 @@ const Index = () => {
               </h2>
               <p className="text-muted-foreground mb-8 text-lg">
                 Join thousands of happy customers and experience the relief you deserve. 
-                Order now and enjoy free shipping!
+                Order now and enjoy free UK shipping!
               </p>
               <Link to="/product">
                 <motion.button
@@ -128,7 +136,7 @@ const Index = () => {
                   whileTap={{ scale: 0.95 }}
                   className="px-10 py-5 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
                 >
-                  Buy Now - $24.95
+                  Buy Now - £19.95
                 </motion.button>
               </Link>
             </div>

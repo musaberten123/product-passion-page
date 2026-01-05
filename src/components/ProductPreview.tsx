@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import productImage from "@/assets/product-reference.webp";
 
 const ProductPreview = () => {
   return (
@@ -31,7 +32,7 @@ const ProductPreview = () => {
               <ScrollReveal direction="left" delay={0.2}>
                 <div className="relative aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-secondary/50">
                   <img
-                    src="https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=600"
+                    src={productImage}
                     alt="Menstrual Relief Belt"
                     className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-700"
                   />
@@ -52,8 +53,8 @@ const ProductPreview = () => {
                   </p>
                   
                   <div className="flex items-center gap-4 mb-8">
-                    <span className="text-3xl font-bold text-primary">$24.95</span>
-                    <span className="text-muted-foreground line-through">$49.95</span>
+                    <span className="text-3xl font-bold text-primary">£19.95</span>
+                    <span className="text-muted-foreground line-through">£39.95</span>
                     <span className="px-3 py-1 bg-primary/20 text-primary text-sm font-semibold rounded-full">
                       50% OFF
                     </span>
