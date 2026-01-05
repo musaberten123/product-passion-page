@@ -11,12 +11,12 @@ const Marquee = () => {
   ];
 
   return (
-    <div className="overflow-hidden bg-primary py-4">
-      <div className="animate-marquee flex whitespace-nowrap">
-        {[...items, ...items].map((item, index) => (
+    <div className="overflow-hidden bg-primary py-2.5 md:py-4">
+      <div className="animate-marquee-fast flex whitespace-nowrap">
+        {[...items, ...items, ...items].map((item, index) => (
           <span
             key={index}
-            className="mx-8 text-primary-foreground font-bold text-lg tracking-wider"
+            className="mx-4 md:mx-8 text-primary-foreground font-bold text-sm md:text-lg tracking-wider"
           >
             {item} ✦
           </span>
