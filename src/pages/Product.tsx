@@ -7,29 +7,21 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import productReference from "@/assets/product-reference.webp";
 
-// All product images from Zovana - comprehensive gallery
+// Product images - only clean product shots without packaging
 const productImages = [
   productReference,
   "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
-  "https://zovana.shop/cdn/shop/files/Sd2e33422778d4f7591bcc1fc2beec1f9S.webp?v=1725442356&width=800",
   "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=800",
   "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
-  "https://zovana.shop/cdn/shop/files/S3becf24304634b93a39f816631b38aa1s.webp?v=1725442356&width=800",
   "https://zovana.shop/cdn/shop/files/Sae8c6b0b358246aeb64e7676f35d11a3d.webp?v=1725442356&width=800",
   "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=800",
   "https://zovana.shop/cdn/shop/files/S1e01533777114564b630bb07769dba1c3.webp?v=1725442356&width=800",
   "https://zovana.shop/cdn/shop/files/S799c1eafe79a42c698c36b6188f2f8e1Z.webp?v=1725442356&width=800",
-  "https://zovana.shop/cdn/shop/files/S196b60a2834d45fb93d2cc9d037b23bdH.webp?v=1725442358&width=800",
   "https://zovana.shop/cdn/shop/files/S13afc97e8d654229b53b1b74a6ae7841B.webp?v=1725442358&width=800",
   "https://zovana.shop/cdn/shop/files/S67958c0bf63946d69c25a11a09704b96z.webp?v=1725442358&width=800",
-  "https://zovana.shop/cdn/shop/files/S06edb5752ec947ca9c68a9e6c5e11257p.webp?v=1725442358&width=800",
   "https://zovana.shop/cdn/shop/files/S9fc3e5bef3a24ca08ca6ba7706724998I.webp?v=1725442358&width=800",
-  "https://zovana.shop/cdn/shop/files/Sdd36287f383740a7be48de49d65e96b5U.webp?v=1725442358&width=800",
   "https://zovana.shop/cdn/shop/files/S5569eaeefc584500800ce71e0f6da55eh.webp?v=1725442358&width=800",
   "https://zovana.shop/cdn/shop/files/S747e495455784f4f986da128984db4d6O.webp?v=1725442358&width=800",
-  "https://zovana.shop/cdn/shop/files/Sba522d488dfa4b3087b28853c353eb0cH.webp?v=1725442359&width=800",
-  "https://zovana.shop/cdn/shop/files/S226215e11a154f77b4f30b37130dab0cJ.webp?v=1725442359&width=800",
-  "https://zovana.shop/cdn/shop/files/S620bc0cbe6894830a0ba7180dd165dd25.webp?v=1725442359&width=800",
 ];
 
 const features = [
