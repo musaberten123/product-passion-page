@@ -60,20 +60,22 @@ const Index = () => {
                     />
                   </motion.div>
                 ) : (
-                  // Centered smaller image (slides 1 and 2)
+                  // Centered smaller image (slides 1 and 2) - fixed size container
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-white p-8 md:p-16"
+                    className="absolute inset-0 w-full h-full flex items-center justify-center bg-white"
                   >
-                    <img
-                      src={slide.src}
-                      alt="Product"
-                      className="max-w-[70%] max-h-[70%] object-contain"
-                    />
+                    <div className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px] flex items-center justify-center">
+                      <img
+                        src={slide.src}
+                        alt="Product"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </motion.div>
                 )
               ) : (
