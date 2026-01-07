@@ -8,16 +8,22 @@ import ScrollReveal from "@/components/ScrollReveal";
 import productReference from "@/assets/product-reference.webp";
 import productHero from "@/assets/product-hero.jpg";
 
-// Product images - unique clean product shots
-const productImages = [
-  productHero,
-  productReference,
-  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
-  "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=800",
-  "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
-  "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=800",
-  "https://zovana.shop/cdn/shop/files/S799c1eafe79a42c698c36b6188f2f8e1Z.webp?v=1725442356&width=800",
-];
+// Product images by color
+const productImagesByColor = {
+  pink: [
+    productHero,
+    productReference,
+    "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
+    "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
+  ],
+  white: [
+    "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/S799c1eafe79a42c698c36b6188f2f8e1Z.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/Sba8f6dc2a69a4050a97e45fc0bb2e99cO.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/S4e8b9a3c5c6d4e7f8a9b0c1d2e3f4g5h.webp?v=1725442356&width=800",
+  ],
+};
 
 const features = [
   "Adjustable elastic strap and buckle",
@@ -35,8 +41,16 @@ const PRICE = 25;
 const Product = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [selectedColor, setSelectedColor] = useState("pink");
+  const [selectedColor, setSelectedColor] = useState<"pink" | "white">("pink");
   const { addToCart } = useCart();
+
+  // Get current color's images
+  const productImages = productImagesByColor[selectedColor];
+
+  // Reset selected image when color changes
+  useEffect(() => {
+    setSelectedImage(0);
+  }, [selectedColor]);
 
   // Prevent auto-zoom on mobile
   useEffect(() => {
