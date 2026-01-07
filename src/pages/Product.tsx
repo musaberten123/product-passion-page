@@ -20,8 +20,9 @@ const productImagesByColor = {
   white: [
     "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=800",
     "https://zovana.shop/cdn/shop/files/S799c1eafe79a42c698c36b6188f2f8e1Z.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/Sba8f6dc2a69a4050a97e45fc0bb2e99cO.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/S4e8b9a3c5c6d4e7f8a9b0c1d2e3f4g5h.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/Sf1a3b2c4d5e6f7890123456789abcdef.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/Sd9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4.webp?v=1725442356&width=800",
+    "https://zovana.shop/cdn/shop/files/Sc7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2.webp?v=1725442356&width=800",
   ],
 };
 
