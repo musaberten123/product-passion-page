@@ -18,11 +18,11 @@ const productImagesByColor = {
     "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
   ],
   white: [
-    "https://zovana.shop/cdn/shop/files/S6b5475b3f30d407882cc072e10cfe8837.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/S799c1eafe79a42c698c36b6188f2f8e1Z.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/Sf1a3b2c4d5e6f7890123456789abcdef.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/Sd9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/Sc7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2.webp?v=1725442356&width=800",
+    "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/41Hcl6OWcCL._AC_SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/412dxPM5ewL._AC_SL1500_.jpg",
+    "https://m.media-amazon.com/images/I/41pLXObtEtL._AC_SL1500_.jpg",
   ],
 };
 
