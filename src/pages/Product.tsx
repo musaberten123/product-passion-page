@@ -257,31 +257,28 @@ const Product = () => {
                         key={index}
                         type="button"
                         onClick={() => handleBundleSelect(index)}
-                        className={`w-full p-3 rounded-xl border-2 transition-all flex items-center justify-between relative overflow-hidden ${
+                        className={`w-full p-3 rounded-xl border-2 transition-all flex items-center justify-between relative ${
                           selectedBundle === index
-                            ? "border-primary bg-primary/10"
+                            ? "border-primary bg-primary/10 shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)]"
                             : bundle.popular
-                              ? "border-primary/50 bg-primary/5"
+                              ? "border-primary bg-primary/10 shadow-[0_0_20px_rgba(var(--primary-rgb),0.25)]"
                               : "border-border hover:border-primary/50"
                         }`}
                       >
                         {bundle.popular && (
-                          <div className="absolute -top-0.5 -right-8 bg-primary text-primary-foreground text-[9px] font-bold px-8 py-0.5 rotate-45 transform translate-x-2">
-                            POPULAR
-                          </div>
+                          <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-primary text-primary-foreground text-[10px] font-bold rounded-full shadow-lg">
+                            ⭐ MOST POPULAR
+                          </span>
                         )}
                         <div className="flex items-center gap-2">
                           <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                            selectedBundle === index ? "border-primary" : "border-muted-foreground"
+                            selectedBundle === index ? "border-primary bg-primary/20" : bundle.popular ? "border-primary" : "border-muted-foreground"
                           }`}>
                             {selectedBundle === index && (
                               <div className="w-2 h-2 rounded-full bg-primary" />
                             )}
                           </div>
-                          <span className="text-sm font-medium">{bundle.label}</span>
-                          {bundle.popular && (
-                            <span className="text-[10px] text-primary font-semibold">Best Value</span>
-                          )}
+                          <span className={`text-sm font-medium ${bundle.popular ? "font-bold" : ""}`}>{bundle.label}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           {bundle.discount > 0 && (
@@ -289,11 +286,15 @@ const Product = () => {
                               £{(PRICE * bundle.qty).toFixed(2)}
                             </span>
                           )}
-                          <span className={`text-sm font-bold ${bundle.popular ? "text-primary" : ""}`}>
+                          <span className={`text-sm font-bold ${bundle.popular ? "text-primary text-base" : ""}`}>
                             £{(PRICE * bundle.qty * (1 - bundle.discount / 100)).toFixed(2)}
                           </span>
                           {bundle.savings && (
-                            <span className="px-2 py-0.5 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
+                            <span className={`px-2 py-0.5 text-xs font-semibold rounded-full ${
+                              bundle.popular 
+                                ? "bg-primary text-primary-foreground" 
+                                : "bg-green-500/20 text-green-500"
+                            }`}>
                               {bundle.savings}
                             </span>
                           )}
@@ -458,31 +459,28 @@ const Product = () => {
                         key={index}
                         type="button"
                         onClick={() => handleBundleSelect(index)}
-                        className={`w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between relative overflow-hidden ${
+                        className={`w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between relative ${
                           selectedBundle === index
-                            ? "border-primary bg-primary/10"
+                            ? "border-primary bg-primary/10 shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)]"
                             : bundle.popular
-                              ? "border-primary/50 bg-primary/5"
+                              ? "border-primary bg-primary/10 shadow-[0_0_25px_rgba(var(--primary-rgb),0.25)]"
                               : "border-border hover:border-primary/50"
                         }`}
                       >
                         {bundle.popular && (
-                          <div className="absolute -top-0.5 -right-10 bg-primary text-primary-foreground text-[10px] font-bold px-10 py-0.5 rotate-45 transform translate-x-2">
-                            POPULAR
-                          </div>
+                          <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-bold rounded-full shadow-lg">
+                            ⭐ MOST POPULAR
+                          </span>
                         )}
                         <div className="flex items-center gap-3">
                           <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                            selectedBundle === index ? "border-primary" : "border-muted-foreground"
+                            selectedBundle === index ? "border-primary bg-primary/20" : bundle.popular ? "border-primary" : "border-muted-foreground"
                           }`}>
                             {selectedBundle === index && (
                               <div className="w-2.5 h-2.5 rounded-full bg-primary" />
                             )}
                           </div>
-                          <span className="font-medium">{bundle.label}</span>
-                          {bundle.popular && (
-                            <span className="text-xs text-primary font-semibold">Best Value</span>
-                          )}
+                          <span className={`font-medium ${bundle.popular ? "font-bold text-lg" : ""}`}>{bundle.label}</span>
                         </div>
                         <div className="flex items-center gap-3">
                           {bundle.discount > 0 && (
@@ -490,11 +488,15 @@ const Product = () => {
                               £{(PRICE * bundle.qty).toFixed(2)}
                             </span>
                           )}
-                          <span className={`text-lg font-bold ${bundle.popular ? "text-primary" : ""}`}>
+                          <span className={`font-bold ${bundle.popular ? "text-primary text-xl" : "text-lg"}`}>
                             £{(PRICE * bundle.qty * (1 - bundle.discount / 100)).toFixed(2)}
                           </span>
                           {bundle.savings && (
-                            <span className="px-2.5 py-1 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
+                            <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${
+                              bundle.popular 
+                                ? "bg-primary text-primary-foreground" 
+                                : "bg-green-500/20 text-green-500"
+                            }`}>
                               {bundle.savings}
                             </span>
                           )}
