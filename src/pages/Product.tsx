@@ -472,22 +472,90 @@ const Product = () => {
             </div>
           </section>
 
-          {/* Safety Notes */}
+          {/* Safety Notes - Integrated Design */}
           <section className="mt-12 md:mt-24">
             <ScrollReveal>
-              <div className="max-w-3xl mx-auto p-4 md:p-8 bg-card rounded-xl md:rounded-2xl border border-border">
-                <h3 className="text-base md:text-xl font-semibold mb-3 md:mb-4 text-primary">
-                  ⚠️ Important Warnings
-                </h3>
-                <ul className="space-y-1.5 md:space-y-2 text-muted-foreground text-xs md:text-sm">
-                  <li>• Do not use high temperature setting for more than 8 minutes.</li>
-                  <li>• For sensitive skin, use over clothing.</li>
-                  <li>• Not suitable for pregnant women.</li>
-                  <li>• People with serious cardiovascular conditions should not use.</li>
-                  <li>• Those with skin sensitivity disorders should use with caution.</li>
-                </ul>
+              <div className="text-center mb-6 md:mb-8">
+                <h2 className="text-2xl md:text-4xl font-display font-bold mb-3">
+                  Safety <span className="text-gradient">Guidelines</span>
+                </h2>
+                <p className="text-muted-foreground text-sm md:text-base">
+                  Please read before using your WarmRelief belt
+                </p>
               </div>
             </ScrollReveal>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+              <ScrollReveal delay={0}>
+                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-sm md:text-base">⏱️</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm md:text-base font-semibold mb-1">Time Limit</h4>
+                      <p className="text-muted-foreground text-xs md:text-sm">Max 8 minutes on high temperature</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.05}>
+                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-sm md:text-base">👗</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm md:text-base font-semibold mb-1">Sensitive Skin</h4>
+                      <p className="text-muted-foreground text-xs md:text-sm">Use over clothing if needed</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1}>
+                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-red-500/50 transition-colors group">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
+                      <span className="text-red-500 text-sm md:text-base">🤰</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm md:text-base font-semibold mb-1">Not for Pregnancy</h4>
+                      <p className="text-muted-foreground text-xs md:text-sm">Avoid use during pregnancy</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.15}>
+                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-red-500/50 transition-colors group">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
+                      <span className="text-red-500 text-sm md:text-base">❤️</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm md:text-base font-semibold mb-1">Heart Conditions</h4>
+                      <p className="text-muted-foreground text-xs md:text-sm">Not for cardiovascular issues</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.2}>
+                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group sm:col-span-2 lg:col-span-1">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-sm md:text-base">⚡</span>
+                    </div>
+                    <div>
+                      <h4 className="text-sm md:text-base font-semibold mb-1">Skin Disorders</h4>
+                      <p className="text-muted-foreground text-xs md:text-sm">Use with caution if sensitive</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </section>
         </div>
       </main>
