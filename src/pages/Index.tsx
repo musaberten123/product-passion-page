@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductPreview from "@/components/ProductPreview";
-import Features from "@/components/Features";
+
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
 import slide1 from "@/assets/slide-1-new.jpg";
@@ -101,7 +101,33 @@ const Index = () => {
       >
         <Marquee />
         <ProductPreview />
-        <Features />
+        
+        {/* Simple Trust Section */}
+        <section className="py-12 md:py-16 bg-card border-y border-border">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
+              <div className="flex flex-col items-center">
+                <span className="text-3xl md:text-4xl font-bold text-primary mb-1">3-5s</span>
+                <span className="text-xs md:text-sm text-muted-foreground">Heat Up Time</span>
+              </div>
+              <div className="w-px h-12 bg-border hidden md:block" />
+              <div className="flex flex-col items-center">
+                <span className="text-3xl md:text-4xl font-bold text-primary mb-1">4</span>
+                <span className="text-xs md:text-sm text-muted-foreground">Massage Modes</span>
+              </div>
+              <div className="w-px h-12 bg-border hidden md:block" />
+              <div className="flex flex-col items-center">
+                <span className="text-3xl md:text-4xl font-bold text-primary mb-1">50%</span>
+                <span className="text-xs md:text-sm text-muted-foreground">Off Today</span>
+              </div>
+              <div className="w-px h-12 bg-border hidden md:block" />
+              <div className="flex flex-col items-center">
+                <span className="text-3xl md:text-4xl font-bold text-primary mb-1">30</span>
+                <span className="text-xs md:text-sm text-muted-foreground">Day Returns</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="py-16 md:py-24 lg:py-32 bg-muted/30">
           <div className="container mx-auto px-4 md:px-8">
