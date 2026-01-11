@@ -41,11 +41,36 @@ const features = [
 
 const PRICE = 25;
 
+// Bundle deals
+const bundles = [
+  { qty: 2, discount: 10, label: "Buy 2", savings: "Save 10%" },
+  { qty: 3, discount: 20, label: "Buy 3", savings: "Save 20%" },
+];
+
 const Product = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState<"pink" | "white">("pink");
+  const [selectedBundle, setSelectedBundle] = useState<number | null>(null);
   const { addToCart } = useCart();
+
+  // Calculate price with bundle discount
+  const getDiscountedPrice = () => {
+    if (selectedBundle !== null) {
+      const bundle = bundles[selectedBundle];
+      const totalPrice = PRICE * bundle.qty;
+      const discountAmount = totalPrice * (bundle.discount / 100);
+      return totalPrice - discountAmount;
+    }
+    return PRICE * quantity;
+  };
+
+  const getEffectiveQuantity = () => {
+    if (selectedBundle !== null) {
+      return bundles[selectedBundle].qty;
+    }
+    return quantity;
+  };
 
   // Get current color's images
   const productImages = productImagesByColor[selectedColor];
@@ -69,13 +94,26 @@ const Product = () => {
   }, []);
 
   const handleAddToCart = () => {
+    const effectiveQty = getEffectiveQuantity();
+    const effectivePrice = selectedBundle !== null 
+      ? getDiscountedPrice() / effectiveQty 
+      : PRICE;
+    
     addToCart({
       name: "Menstrual Relief Heating Massage Belt",
-      price: PRICE,
-      quantity,
+      price: effectivePrice,
+      quantity: effectiveQty,
       color: selectedColor,
       image: productImages[0],
     });
+  };
+
+  const handleBundleSelect = (index: number) => {
+    if (selectedBundle === index) {
+      setSelectedBundle(null);
+    } else {
+      setSelectedBundle(index);
+    }
   };
 
   const nextImage = () => {
@@ -209,13 +247,54 @@ const Product = () => {
                   </div>
                 </div>
 
+                {/* Bundle Deals */}
+                <div className="space-y-2">
+                  <span className="text-sm font-medium">Special Offers:</span>
+                  <div className="space-y-2">
+                    {bundles.map((bundle, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => handleBundleSelect(index)}
+                        className={`w-full p-3 rounded-xl border-2 transition-all flex items-center justify-between ${
+                          selectedBundle === index
+                            ? "border-primary bg-primary/10"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                            selectedBundle === index ? "border-primary" : "border-muted-foreground"
+                          }`}>
+                            {selectedBundle === index && (
+                              <div className="w-2 h-2 rounded-full bg-primary" />
+                            )}
+                          </div>
+                          <span className="text-sm font-medium">{bundle.label}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs line-through text-muted-foreground">
+                            £{(PRICE * bundle.qty).toFixed(2)}
+                          </span>
+                          <span className="text-sm font-bold text-primary">
+                            £{(PRICE * bundle.qty * (1 - bundle.discount / 100)).toFixed(2)}
+                          </span>
+                          <span className="px-2 py-0.5 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
+                            {bundle.savings}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Add to Cart - Fixed bottom on mobile */}
                 <motion.button
                   whileTap={{ scale: 0.98 }}
                   onClick={handleAddToCart}
                   className="w-full py-4 bg-primary text-primary-foreground rounded-full font-semibold text-base glow transition-all"
                 >
-                  Add to Basket - £{(PRICE * quantity).toFixed(2)}
+                  Add to Basket - £{getDiscountedPrice().toFixed(2)}
                 </motion.button>
 
                 {/* Trust badges - Compact */}
@@ -339,19 +418,60 @@ const Product = () => {
                   <div className="flex items-center gap-4">
                     <button
                       type="button"
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      onClick={() => { setQuantity(Math.max(1, quantity - 1)); setSelectedBundle(null); }}
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary transition-colors"
                     >
                       <Minus className="w-4 h-4" />
                     </button>
-                    <span className="text-xl font-semibold w-8 text-center">{quantity}</span>
+                    <span className="text-xl font-semibold w-8 text-center">{selectedBundle !== null ? bundles[selectedBundle].qty : quantity}</span>
                     <button
                       type="button"
-                      onClick={() => setQuantity(quantity + 1)}
+                      onClick={() => { setQuantity(quantity + 1); setSelectedBundle(null); }}
                       className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary transition-colors"
                     >
                       <Plus className="w-4 h-4" />
                     </button>
+                  </div>
+                </div>
+
+                {/* Bundle Deals */}
+                <div className="space-y-3">
+                  <label className="text-sm font-medium">Special Offers</label>
+                  <div className="space-y-3">
+                    {bundles.map((bundle, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => handleBundleSelect(index)}
+                        className={`w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between ${
+                          selectedBundle === index
+                            ? "border-primary bg-primary/10"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                            selectedBundle === index ? "border-primary" : "border-muted-foreground"
+                          }`}>
+                            {selectedBundle === index && (
+                              <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                            )}
+                          </div>
+                          <span className="font-medium">{bundle.label}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm line-through text-muted-foreground">
+                            £{(PRICE * bundle.qty).toFixed(2)}
+                          </span>
+                          <span className="text-lg font-bold text-primary">
+                            £{(PRICE * bundle.qty * (1 - bundle.discount / 100)).toFixed(2)}
+                          </span>
+                          <span className="px-2.5 py-1 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
+                            {bundle.savings}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
                   </div>
                 </div>
 
@@ -362,7 +482,7 @@ const Product = () => {
                   onClick={handleAddToCart}
                   className="w-full py-4 bg-primary text-primary-foreground rounded-full font-semibold text-lg glow hover:glow transition-all"
                 >
-                  Add to Basket - £{(PRICE * quantity).toFixed(2)}
+                  Add to Basket - £{getDiscountedPrice().toFixed(2)}
                 </motion.button>
 
                 {/* Trust badges */}
