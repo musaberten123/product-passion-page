@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Minus, Plus, Truck, Shield, RotateCcw, ChevronLeft, ChevronRight, Thermometer, Vibrate, Battery } from "lucide-react";
+import { Check, Minus, Plus, Truck, Shield, RotateCcw, ChevronLeft, ChevronRight, Thermometer, Vibrate, Battery, Settings2, Zap, Feather, Wind, Maximize2, Waves } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -29,14 +29,14 @@ const productImagesByColor = {
 };
 
 const features = [
-  "Adjustable elastic strap and buckle",
-  "Heats up in 3-5 seconds",
-  "3-level smart temperature control (50/55/60°C)",
-  "4-level vibration massage",
-  "Lightweight design (only 0.5 lbs)",
-  "Soft and breathable fabric",
-  "Strap extends up to 52 inches",
-  "Far-infrared wave technology",
+  { text: "Adjustable elastic strap and buckle", icon: "Settings2" },
+  { text: "Heats up in 3-5 seconds", icon: "Zap" },
+  { text: "3-level smart temperature control (50/55/60°C)", icon: "Thermometer" },
+  { text: "4-level vibration massage", icon: "Vibrate" },
+  { text: "Lightweight design (only 0.5 lbs)", icon: "Feather" },
+  { text: "Soft and breathable fabric", icon: "Wind" },
+  { text: "Strap extends up to 52 inches", icon: "Maximize2" },
+  { text: "Far-infrared wave technology", icon: "Waves" },
 ];
 
 const PRICE = 25;
@@ -543,17 +543,23 @@ const Product = () => {
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4 max-w-3xl mx-auto">
-              {features.map((feature, index) => (
-                <ScrollReveal key={index} delay={index * 0.05}>
-                  <div className="flex items-center gap-3 p-3 md:p-4 bg-card rounded-xl border border-border">
-                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3 h-3 md:w-4 md:h-4 text-primary" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 max-w-4xl mx-auto">
+              {features.map((feature, index) => {
+                const IconComponent = {
+                  Settings2, Zap, Thermometer, Vibrate, Feather, Wind, Maximize2, Waves
+                }[feature.icon] || Check;
+                
+                return (
+                  <ScrollReveal key={index} delay={index * 0.05}>
+                    <div className="flex items-center gap-4 p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-primary/30 transition-colors group">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                      </div>
+                      <span className="text-sm md:text-base font-medium">{feature.text}</span>
                     </div>
-                    <span className="text-xs md:text-sm">{feature}</span>
-                  </div>
-                </ScrollReveal>
-              ))}
+                  </ScrollReveal>
+                );
+              })}
             </div>
           </section>
 
