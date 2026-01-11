@@ -43,8 +43,9 @@ const PRICE = 25;
 
 // Bundle deals
 const bundles = [
-  { qty: 2, discount: 10, label: "Buy 2", savings: "Save 10%" },
-  { qty: 3, discount: 20, label: "Buy 3", savings: "Save 20%" },
+  { qty: 1, discount: 0, label: "Buy 1", savings: null, popular: false },
+  { qty: 2, discount: 10, label: "Buy 2", savings: "Save 10%", popular: true },
+  { qty: 3, discount: 20, label: "Buy 3", savings: "Save 20%", popular: false },
 ];
 
 const Product = () => {
@@ -256,12 +257,19 @@ const Product = () => {
                         key={index}
                         type="button"
                         onClick={() => handleBundleSelect(index)}
-                        className={`w-full p-3 rounded-xl border-2 transition-all flex items-center justify-between ${
+                        className={`w-full p-3 rounded-xl border-2 transition-all flex items-center justify-between relative overflow-hidden ${
                           selectedBundle === index
                             ? "border-primary bg-primary/10"
-                            : "border-border hover:border-primary/50"
+                            : bundle.popular
+                              ? "border-primary/50 bg-primary/5"
+                              : "border-border hover:border-primary/50"
                         }`}
                       >
+                        {bundle.popular && (
+                          <div className="absolute -top-0.5 -right-8 bg-primary text-primary-foreground text-[9px] font-bold px-8 py-0.5 rotate-45 transform translate-x-2">
+                            POPULAR
+                          </div>
+                        )}
                         <div className="flex items-center gap-2">
                           <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                             selectedBundle === index ? "border-primary" : "border-muted-foreground"
@@ -271,17 +279,24 @@ const Product = () => {
                             )}
                           </div>
                           <span className="text-sm font-medium">{bundle.label}</span>
+                          {bundle.popular && (
+                            <span className="text-[10px] text-primary font-semibold">Best Value</span>
+                          )}
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs line-through text-muted-foreground">
-                            £{(PRICE * bundle.qty).toFixed(2)}
-                          </span>
-                          <span className="text-sm font-bold text-primary">
+                          {bundle.discount > 0 && (
+                            <span className="text-xs line-through text-muted-foreground">
+                              £{(PRICE * bundle.qty).toFixed(2)}
+                            </span>
+                          )}
+                          <span className={`text-sm font-bold ${bundle.popular ? "text-primary" : ""}`}>
                             £{(PRICE * bundle.qty * (1 - bundle.discount / 100)).toFixed(2)}
                           </span>
-                          <span className="px-2 py-0.5 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
-                            {bundle.savings}
-                          </span>
+                          {bundle.savings && (
+                            <span className="px-2 py-0.5 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
+                              {bundle.savings}
+                            </span>
+                          )}
                         </div>
                       </button>
                     ))}
@@ -443,12 +458,19 @@ const Product = () => {
                         key={index}
                         type="button"
                         onClick={() => handleBundleSelect(index)}
-                        className={`w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between ${
+                        className={`w-full p-4 rounded-xl border-2 transition-all flex items-center justify-between relative overflow-hidden ${
                           selectedBundle === index
                             ? "border-primary bg-primary/10"
-                            : "border-border hover:border-primary/50"
+                            : bundle.popular
+                              ? "border-primary/50 bg-primary/5"
+                              : "border-border hover:border-primary/50"
                         }`}
                       >
+                        {bundle.popular && (
+                          <div className="absolute -top-0.5 -right-10 bg-primary text-primary-foreground text-[10px] font-bold px-10 py-0.5 rotate-45 transform translate-x-2">
+                            POPULAR
+                          </div>
+                        )}
                         <div className="flex items-center gap-3">
                           <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                             selectedBundle === index ? "border-primary" : "border-muted-foreground"
@@ -458,17 +480,24 @@ const Product = () => {
                             )}
                           </div>
                           <span className="font-medium">{bundle.label}</span>
+                          {bundle.popular && (
+                            <span className="text-xs text-primary font-semibold">Best Value</span>
+                          )}
                         </div>
                         <div className="flex items-center gap-3">
-                          <span className="text-sm line-through text-muted-foreground">
-                            £{(PRICE * bundle.qty).toFixed(2)}
-                          </span>
-                          <span className="text-lg font-bold text-primary">
+                          {bundle.discount > 0 && (
+                            <span className="text-sm line-through text-muted-foreground">
+                              £{(PRICE * bundle.qty).toFixed(2)}
+                            </span>
+                          )}
+                          <span className={`text-lg font-bold ${bundle.popular ? "text-primary" : ""}`}>
                             £{(PRICE * bundle.qty * (1 - bundle.discount / 100)).toFixed(2)}
                           </span>
-                          <span className="px-2.5 py-1 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
-                            {bundle.savings}
-                          </span>
+                          {bundle.savings && (
+                            <span className="px-2.5 py-1 bg-green-500/20 text-green-500 text-xs font-semibold rounded-full">
+                              {bundle.savings}
+                            </span>
+                          )}
                         </div>
                       </button>
                     ))}
