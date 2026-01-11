@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Minus, Plus, Truck, Shield, RotateCcw, ChevronLeft, ChevronRight } from "lucide-react";
+import { Check, Minus, Plus, Truck, Shield, RotateCcw, ChevronLeft, ChevronRight, Thermometer, Vibrate, Battery } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -403,6 +403,72 @@ const Product = () => {
                   </div>
                 </ScrollReveal>
               ))}
+            </div>
+          </section>
+
+          {/* Why WarmRelief Section */}
+          <section className="mt-12 md:mt-24 py-12 md:py-16 bg-card rounded-2xl md:rounded-3xl">
+            <div className="px-4 md:px-8">
+              <ScrollReveal>
+                <div className="text-center mb-8 md:mb-12">
+                  <h2 className="text-2xl md:text-4xl font-display font-bold mb-3">
+                    Why <span className="text-gradient">WarmRelief?</span>
+                  </h2>
+                  <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+                    Designed with the latest technology, optimized for your comfort
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                <ScrollReveal delay={0}>
+                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Thermometer className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">Rapid Heating</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                      Heats up in 3-5 seconds and emits far-infrared waves for deep tissue relief
+                    </p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.1}>
+                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Vibrate className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">4-Level Massage</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                      4 different vibration modes for personalized relaxation and comfort
+                    </p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.2}>
+                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Battery className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">3 Heat Settings</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                      Smart temperature control between 50°C, 55°C, and 60°C for perfect warmth
+                    </p>
+                  </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={0.3}>
+                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    </div>
+                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">Safe to Use</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                      Smart safety chip protects against overheating for worry-free use
+                    </p>
+                  </div>
+                </ScrollReveal>
+              </div>
             </div>
           </section>
 
