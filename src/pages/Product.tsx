@@ -315,17 +315,23 @@ const Product = () => {
 
                 {/* Trust badges - Compact */}
                 <div className="grid grid-cols-3 gap-2">
-                  <div className="flex flex-col items-center text-center p-2 bg-card rounded-xl border border-border">
-                    <Truck className="w-4 h-4 text-primary mb-1" />
-                    <span className="text-[10px] text-muted-foreground">Free Shipping</span>
+                  <div className="flex flex-col items-center text-center p-3 bg-gradient-to-b from-primary/10 to-primary/5 rounded-xl border border-primary/20">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mb-1.5">
+                      <Truck className="w-4 h-4 text-primary" />
+                    </div>
+                    <span className="text-[11px] font-semibold text-foreground">Free Shipping</span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-2 bg-card rounded-xl border border-border">
-                    <Shield className="w-4 h-4 text-primary mb-1" />
-                    <span className="text-[10px] text-muted-foreground">Secure Pay</span>
+                  <div className="flex flex-col items-center text-center p-3 bg-gradient-to-b from-green-500/10 to-green-500/5 rounded-xl border border-green-500/20">
+                    <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mb-1.5">
+                      <Shield className="w-4 h-4 text-green-500" />
+                    </div>
+                    <span className="text-[11px] font-semibold text-foreground">Secure Pay</span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-2 bg-card rounded-xl border border-border">
-                    <RotateCcw className="w-4 h-4 text-primary mb-1" />
-                    <span className="text-[10px] text-muted-foreground">30-Day Return</span>
+                  <div className="flex flex-col items-center text-center p-3 bg-gradient-to-b from-blue-500/10 to-blue-500/5 rounded-xl border border-blue-500/20">
+                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center mb-1.5">
+                      <RotateCcw className="w-4 h-4 text-blue-500" />
+                    </div>
+                    <span className="text-[11px] font-semibold text-foreground">30-Day Return</span>
                   </div>
                 </div>
               </div>
@@ -518,17 +524,26 @@ const Product = () => {
 
                 {/* Trust badges */}
                 <div className="grid grid-cols-3 gap-4 pt-4">
-                  <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
-                    <Truck className="w-6 h-6 text-primary mb-2" />
-                    <span className="text-xs text-muted-foreground">Free UK Shipping</span>
+                  <div className="flex flex-col items-center text-center p-5 bg-gradient-to-b from-primary/15 to-primary/5 rounded-2xl border border-primary/30 hover:border-primary/50 transition-colors group">
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                      <Truck className="w-6 h-6 text-primary" />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">Free UK Shipping</span>
+                    <span className="text-xs text-muted-foreground mt-0.5">On all orders</span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
-                    <Shield className="w-6 h-6 text-primary mb-2" />
-                    <span className="text-xs text-muted-foreground">Secure Payment</span>
+                  <div className="flex flex-col items-center text-center p-5 bg-gradient-to-b from-green-500/15 to-green-500/5 rounded-2xl border border-green-500/30 hover:border-green-500/50 transition-colors group">
+                    <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                      <Shield className="w-6 h-6 text-green-500" />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">Secure Payment</span>
+                    <span className="text-xs text-muted-foreground mt-0.5">SSL encrypted</span>
                   </div>
-                  <div className="flex flex-col items-center text-center p-4 bg-card rounded-xl border border-border">
-                    <RotateCcw className="w-6 h-6 text-primary mb-2" />
-                    <span className="text-xs text-muted-foreground">30-Day Returns</span>
+                  <div className="flex flex-col items-center text-center p-5 bg-gradient-to-b from-blue-500/15 to-blue-500/5 rounded-2xl border border-blue-500/30 hover:border-blue-500/50 transition-colors group">
+                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                      <RotateCcw className="w-6 h-6 text-blue-500" />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">30-Day Returns</span>
+                    <span className="text-xs text-muted-foreground mt-0.5">Money back</span>
                   </div>
                 </div>
               </div>
