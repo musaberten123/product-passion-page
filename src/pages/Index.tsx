@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -56,24 +56,38 @@ const Index = () => {
         style={{ opacity: heroOpacity }}
         className="h-screen w-full relative overflow-hidden pt-16 md:pt-20"
       >
-        {currentSlideData.type === "image" ? (
-          <div 
-            className="w-full h-full flex items-center justify-center"
-            style={{ backgroundColor: currentSlideData.bgColor }}
-          >
-            <img
-              src={currentSlideData.src}
-              alt="Product"
-              className={`object-contain ${currentSlideData.productSize || ""}`}
-            />
-          </div>
-        ) : (
-          <div className="w-full h-full bg-black flex items-center justify-center">
-            <span className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
-              {currentSlideData.content}
-            </span>
-          </div>
-        )}
+        <AnimatePresence mode="wait">
+          {currentSlideData.type === "image" ? (
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full flex items-center justify-center"
+              style={{ backgroundColor: currentSlideData.bgColor }}
+            >
+              <img
+                src={currentSlideData.src}
+                alt="Product"
+                className={`object-contain ${currentSlideData.productSize || ""}`}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
+            >
+              <span className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
+                {currentSlideData.content}
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <motion.button
           onClick={handleScrollClick}
