@@ -565,7 +565,7 @@ const Product = () => {
               </h2>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 gap-2 md:gap-5 max-w-4xl mx-auto">
               {features.map((feature, index) => {
                 const IconComponent = {
                   Settings2, Zap, Thermometer, Vibrate, Feather, Wind, Maximize2, Waves
@@ -573,11 +573,11 @@ const Product = () => {
                 
                 return (
                   <ScrollReveal key={index} delay={index * 0.05}>
-                    <div className="flex items-center gap-4 p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-primary/30 transition-colors group">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                        <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                    <div className="flex items-center gap-2 md:gap-4 p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-primary/30 transition-colors group">
+                      <div className="w-7 h-7 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                        <IconComponent className="w-3.5 h-3.5 md:w-6 md:h-6 text-primary" />
                       </div>
-                      <span className="text-sm md:text-base font-medium">{feature.text}</span>
+                      <span className="text-[11px] md:text-base font-medium leading-tight">{feature.text}</span>
                     </div>
                   </ScrollReveal>
                 );
