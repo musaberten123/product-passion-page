@@ -586,64 +586,64 @@ const Product = () => {
           </section>
 
           {/* Why WarmRelief Section */}
-          <section className="mt-12 md:mt-24 py-12 md:py-16 bg-card rounded-2xl md:rounded-3xl">
-            <div className="px-4 md:px-8">
+          <section className="mt-8 md:mt-24 py-6 md:py-16 bg-card rounded-xl md:rounded-3xl">
+            <div className="px-3 md:px-8">
               <ScrollReveal>
-                <div className="text-center mb-8 md:mb-12">
-                  <h2 className="text-2xl md:text-4xl font-display font-bold mb-3">
+                <div className="text-center mb-4 md:mb-12">
+                  <h2 className="text-lg md:text-4xl font-display font-bold mb-1.5 md:mb-3">
                     Why <span className="text-gradient">WarmRelief?</span>
                   </h2>
-                  <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+                  <p className="text-muted-foreground text-xs md:text-base max-w-2xl mx-auto">
                     Designed with the latest technology, optimized for your comfort
                   </p>
                 </div>
               </ScrollReveal>
 
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-6">
                 <ScrollReveal delay={0}>
-                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Thermometer className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  <div className="p-2.5 md:p-6 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-7 h-7 md:w-12 md:h-12 rounded-md md:rounded-xl bg-primary/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Thermometer className="w-3.5 h-3.5 md:w-6 md:h-6 text-primary" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">Rapid Heating</h3>
-                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                      Heats up in 3-5 seconds and emits far-infrared waves for deep tissue relief
+                    <h3 className="text-[11px] md:text-lg font-semibold mb-0.5 md:mb-2">Rapid Heating</h3>
+                    <p className="text-muted-foreground text-[10px] md:text-sm leading-tight md:leading-relaxed">
+                      Heats up in 3-5 seconds with far-infrared waves
                     </p>
                   </div>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.1}>
-                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Vibrate className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  <div className="p-2.5 md:p-6 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-7 h-7 md:w-12 md:h-12 rounded-md md:rounded-xl bg-primary/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Vibrate className="w-3.5 h-3.5 md:w-6 md:h-6 text-primary" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">4-Level Massage</h3>
-                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                      4 different vibration modes for personalized relaxation and comfort
+                    <h3 className="text-[11px] md:text-lg font-semibold mb-0.5 md:mb-2">4-Level Massage</h3>
+                    <p className="text-muted-foreground text-[10px] md:text-sm leading-tight md:leading-relaxed">
+                      4 vibration modes for personalized comfort
                     </p>
                   </div>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.2}>
-                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Battery className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  <div className="p-2.5 md:p-6 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-7 h-7 md:w-12 md:h-12 rounded-md md:rounded-xl bg-primary/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Battery className="w-3.5 h-3.5 md:w-6 md:h-6 text-primary" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">3 Heat Settings</h3>
-                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                      Smart temperature control between 50°C, 55°C, and 60°C for perfect warmth
+                    <h3 className="text-[11px] md:text-lg font-semibold mb-0.5 md:mb-2">3 Heat Settings</h3>
+                    <p className="text-muted-foreground text-[10px] md:text-sm leading-tight md:leading-relaxed">
+                      Control between 50°C, 55°C, and 60°C
                     </p>
                   </div>
                 </ScrollReveal>
 
                 <ScrollReveal delay={0.3}>
-                  <div className="p-4 md:p-6 bg-background rounded-xl md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Shield className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  <div className="p-2.5 md:p-6 bg-background rounded-lg md:rounded-2xl border border-border hover:border-primary/50 transition-colors group h-full">
+                    <div className="w-7 h-7 md:w-12 md:h-12 rounded-md md:rounded-xl bg-primary/10 flex items-center justify-center mb-2 md:mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Shield className="w-3.5 h-3.5 md:w-6 md:h-6 text-primary" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold mb-1.5 md:mb-2">Safe to Use</h3>
-                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                      Smart safety chip protects against overheating for worry-free use
+                    <h3 className="text-[11px] md:text-lg font-semibold mb-0.5 md:mb-2">Safe to Use</h3>
+                    <p className="text-muted-foreground text-[10px] md:text-sm leading-tight md:leading-relaxed">
+                      Smart chip protects against overheating
                     </p>
                   </div>
                 </ScrollReveal>
@@ -652,84 +652,84 @@ const Product = () => {
           </section>
 
           {/* Safety Notes - Integrated Design */}
-          <section className="mt-12 md:mt-24">
+          <section className="mt-8 md:mt-24">
             <ScrollReveal>
-              <div className="text-center mb-6 md:mb-8">
-                <h2 className="text-2xl md:text-4xl font-display font-bold mb-3">
+              <div className="text-center mb-4 md:mb-8">
+                <h2 className="text-lg md:text-4xl font-display font-bold mb-1.5 md:mb-3">
                   Safety <span className="text-gradient">Guidelines</span>
                 </h2>
-                <p className="text-muted-foreground text-sm md:text-base">
+                <p className="text-muted-foreground text-xs md:text-base">
                   Please read before using your WarmRelief belt
                 </p>
               </div>
             </ScrollReveal>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 max-w-4xl mx-auto">
               <ScrollReveal delay={0}>
-                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
-                      <span className="text-amber-500 text-sm md:text-base">⏱️</span>
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-[10px] md:text-base">⏱️</span>
                     </div>
                     <div>
-                      <h4 className="text-sm md:text-base font-semibold mb-1">Time Limit</h4>
-                      <p className="text-muted-foreground text-xs md:text-sm">Max 8 minutes on high temperature</p>
+                      <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Time Limit</h4>
+                      <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Max 8 min on high temp</p>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.05}>
-                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
-                      <span className="text-amber-500 text-sm md:text-base">👗</span>
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-[10px] md:text-base">👗</span>
                     </div>
                     <div>
-                      <h4 className="text-sm md:text-base font-semibold mb-1">Sensitive Skin</h4>
-                      <p className="text-muted-foreground text-xs md:text-sm">Use over clothing if needed</p>
+                      <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Sensitive Skin</h4>
+                      <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Use over clothing</p>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-red-500/50 transition-colors group">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
-                      <span className="text-red-500 text-sm md:text-base">🤰</span>
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-red-500/50 transition-colors group">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
+                      <span className="text-red-500 text-[10px] md:text-base">🤰</span>
                     </div>
                     <div>
-                      <h4 className="text-sm md:text-base font-semibold mb-1">Not for Pregnancy</h4>
-                      <p className="text-muted-foreground text-xs md:text-sm">Avoid use during pregnancy</p>
+                      <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Not for Pregnancy</h4>
+                      <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Avoid during pregnancy</p>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.15}>
-                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-red-500/50 transition-colors group">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
-                      <span className="text-red-500 text-sm md:text-base">❤️</span>
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-red-500/50 transition-colors group">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500/20 transition-colors">
+                      <span className="text-red-500 text-[10px] md:text-base">❤️</span>
                     </div>
                     <div>
-                      <h4 className="text-sm md:text-base font-semibold mb-1">Heart Conditions</h4>
-                      <p className="text-muted-foreground text-xs md:text-sm">Not for cardiovascular issues</p>
+                      <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Heart Conditions</h4>
+                      <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Not for cardiovascular issues</p>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <div className="p-4 md:p-5 bg-card rounded-xl md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group sm:col-span-2 lg:col-span-1">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
-                      <span className="text-amber-500 text-sm md:text-base">⚡</span>
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group col-span-2 lg:col-span-1">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-[10px] md:text-base">⚡</span>
                     </div>
                     <div>
-                      <h4 className="text-sm md:text-base font-semibold mb-1">Skin Disorders</h4>
-                      <p className="text-muted-foreground text-xs md:text-sm">Use with caution if sensitive</p>
+                      <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Skin Disorders</h4>
+                      <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Use with caution if sensitive</p>
                     </div>
                   </div>
                 </div>
