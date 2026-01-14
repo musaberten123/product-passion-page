@@ -5,6 +5,7 @@ import { useCart } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import PaymentIcons, { PaymentIconsLarge } from "@/components/PaymentIcons";
 import productReference from "@/assets/product-reference.webp";
 import productHero from "@/assets/product-hero.jpg";
 import slide2White from "@/assets/slide-2-new.jpg";
@@ -314,14 +315,7 @@ const Product = () => {
                 </motion.button>
 
                 {/* Payment Methods */}
-                <div className="flex items-center justify-center gap-2 pt-2">
-                  <span className="text-xs text-muted-foreground mr-1">We accept:</span>
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/visa.svg" alt="Visa" className="h-6 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/mastercard.svg" alt="Mastercard" className="h-6 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/amex.svg" alt="American Express" className="h-6 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/paypal.svg" alt="PayPal" className="h-6 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/apple-pay.svg" alt="Apple Pay" className="h-6 w-auto" />
-                </div>
+                <PaymentIcons className="h-6" />
 
                 {/* Trust badges - Compact */}
                 <div className="grid grid-cols-3 gap-2">
@@ -533,14 +527,7 @@ const Product = () => {
                 </motion.button>
 
                 {/* Payment Methods */}
-                <div className="flex items-center justify-center gap-3">
-                  <span className="text-sm text-muted-foreground">We accept:</span>
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/visa.svg" alt="Visa" className="h-7 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/mastercard.svg" alt="Mastercard" className="h-7 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/amex.svg" alt="American Express" className="h-7 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/paypal.svg" alt="PayPal" className="h-7 w-auto" />
-                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/apple-pay.svg" alt="Apple Pay" className="h-7 w-auto" />
-                </div>
+                <PaymentIconsLarge className="h-7" />
 
                 {/* Trust badges */}
                 <div className="grid grid-cols-3 gap-4 pt-4">
