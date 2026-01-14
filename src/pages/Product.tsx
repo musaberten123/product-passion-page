@@ -342,7 +342,7 @@ const Product = () => {
             <ScrollReveal direction="left" className="hidden lg:block">
               <div className="space-y-4">
                 <motion.div
-                  className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-white to-gray-50 border border-border"
+                  className="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-white to-gray-50 border border-border"
                   layoutId="productImage"
                 >
                   <AnimatePresence mode="wait">
@@ -354,7 +354,7 @@ const Product = () => {
                       transition={{ duration: 0.3 }}
                       src={productImages[selectedImage]}
                       alt="Product"
-                      className="w-[85%] h-[85%] object-contain mx-auto"
+                      className="w-full h-full object-contain p-8"
                       loading="eager"
                     />
                   </AnimatePresence>
