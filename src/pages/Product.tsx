@@ -313,6 +313,16 @@ const Product = () => {
                   Add to Basket - £{getDiscountedPrice().toFixed(2)}
                 </motion.button>
 
+                {/* Payment Methods */}
+                <div className="flex items-center justify-center gap-2 pt-2">
+                  <span className="text-xs text-muted-foreground mr-1">We accept:</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/visa.svg" alt="Visa" className="h-6 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/mastercard.svg" alt="Mastercard" className="h-6 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/amex.svg" alt="American Express" className="h-6 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/paypal.svg" alt="PayPal" className="h-6 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/apple-pay.svg" alt="Apple Pay" className="h-6 w-auto" />
+                </div>
+
                 {/* Trust badges - Compact */}
                 <div className="grid grid-cols-3 gap-2">
                   <div className="flex flex-col items-center text-center p-3 bg-gradient-to-b from-primary/10 to-primary/5 rounded-xl border border-primary/20">
@@ -521,6 +531,16 @@ const Product = () => {
                 >
                   Add to Basket - £{getDiscountedPrice().toFixed(2)}
                 </motion.button>
+
+                {/* Payment Methods */}
+                <div className="flex items-center justify-center gap-3">
+                  <span className="text-sm text-muted-foreground">We accept:</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/visa.svg" alt="Visa" className="h-7 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/mastercard.svg" alt="Mastercard" className="h-7 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/amex.svg" alt="American Express" className="h-7 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/paypal.svg" alt="PayPal" className="h-7 w-auto" />
+                  <img src="https://cdn.shopify.com/s/files/1/0601/3391/9884/files/apple-pay.svg" alt="Apple Pay" className="h-7 w-auto" />
+                </div>
 
                 {/* Trust badges */}
                 <div className="grid grid-cols-3 gap-4 pt-4">
