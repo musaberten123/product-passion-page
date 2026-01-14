@@ -354,7 +354,7 @@ const Product = () => {
                       transition={{ duration: 0.3 }}
                       src={productImages[selectedImage]}
                       alt="Product"
-                      className="w-full h-full object-contain p-6"
+                      className="w-[85%] h-[85%] object-contain mx-auto"
                       loading="eager"
                     />
                   </AnimatePresence>
