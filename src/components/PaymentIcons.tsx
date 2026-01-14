@@ -1,7 +1,6 @@
 const PaymentIcons = ({ className = "h-6" }: { className?: string }) => {
   return (
     <div className="flex items-center justify-center gap-2 flex-wrap">
-      <span className="text-xs text-muted-foreground mr-1">We accept:</span>
       {/* Visa */}
       <svg className={className} viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="48" height="32" rx="4" fill="#1A1F71"/>
@@ -43,7 +42,6 @@ const PaymentIcons = ({ className = "h-6" }: { className?: string }) => {
 export const PaymentIconsLarge = ({ className = "h-7" }: { className?: string }) => {
   return (
     <div className="flex items-center justify-center gap-3 flex-wrap">
-      <span className="text-sm text-muted-foreground">We accept:</span>
       {/* Visa */}
       <svg className={className} viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="48" height="32" rx="4" fill="#1A1F71"/>
