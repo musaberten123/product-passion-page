@@ -138,7 +138,7 @@ const Product = () => {
             <div className="lg:hidden">
               <div className="relative">
                 {/* Main Image */}
-                <div className="relative aspect-square bg-gradient-to-b from-white to-gray-50 rounded-2xl overflow-hidden">
+                <div className="relative aspect-square bg-gradient-to-b from-white to-gray-50 rounded-2xl overflow-hidden flex items-center justify-center">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={selectedImage}
@@ -148,7 +148,7 @@ const Product = () => {
                       transition={{ duration: 0.2 }}
                       src={productImages[selectedImage]}
                       alt="Product"
-                      className="w-full h-full object-contain p-4"
+                      className="w-[70%] h-[70%] object-contain"
                     />
                   </AnimatePresence>
                   
@@ -342,7 +342,7 @@ const Product = () => {
             <ScrollReveal direction="left" className="hidden lg:block">
               <div className="space-y-4">
                 <motion.div
-                  className="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-white to-gray-50 border border-border"
+                  className="aspect-square max-w-xs mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-white to-gray-50 border border-border flex items-center justify-center"
                   layoutId="productImage"
                 >
                   <AnimatePresence mode="wait">
@@ -354,7 +354,7 @@ const Product = () => {
                       transition={{ duration: 0.3 }}
                       src={productImages[selectedImage]}
                       alt="Product"
-                      className="w-full h-full object-contain p-8"
+                      className="w-[70%] h-[70%] object-contain"
                       loading="eager"
                     />
                   </AnimatePresence>
