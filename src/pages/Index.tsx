@@ -58,34 +58,38 @@ const Index = () => {
       >
         <AnimatePresence mode="wait">
           {currentSlideData.type === "image" ? (
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full flex items-center justify-center"
-              style={{ backgroundColor: currentSlideData.bgColor }}
-            >
-              <img
-                src={currentSlideData.src}
-                alt="Product"
-                className={`object-contain ${currentSlideData.productSize || ""}`}
-              />
-            </motion.div>
+            <Link to="/product" className="absolute inset-0 w-full h-full">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full h-full flex items-center justify-center cursor-pointer"
+                style={{ backgroundColor: currentSlideData.bgColor }}
+              >
+                <img
+                  src={currentSlideData.src}
+                  alt="Product"
+                  className={`object-contain ${currentSlideData.productSize || ""}`}
+                />
+              </motion.div>
+            </Link>
           ) : (
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full bg-black flex items-center justify-center"
-            >
-              <span className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
-                {currentSlideData.content}
-              </span>
-            </motion.div>
+            <Link to="/product" className="absolute inset-0 w-full h-full">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full h-full bg-black flex items-center justify-center cursor-pointer"
+              >
+                <span className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
+                  {currentSlideData.content}
+                </span>
+              </motion.div>
+            </Link>
           )}
         </AnimatePresence>
 
