@@ -202,9 +202,6 @@ const Product = () => {
                   </span>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Combining gentle heat with targeted massage for cramp relief. Adjustable and portable.
-                </p>
 
                 {/* Color Selection */}
                 <div className="flex items-center gap-4">
@@ -398,11 +395,6 @@ const Product = () => {
                   <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
                     Menstrual Relief Heating Massage Belt
                   </h1>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Combining gentle heat with targeted massage, this belt relieves 
-                    cramps and discomfort. Adjustable and portable for use at home 
-                    or on the go, letting you manage your pain wherever you are.
-                  </p>
                 </div>
 
                 <div className="flex items-center gap-4">
