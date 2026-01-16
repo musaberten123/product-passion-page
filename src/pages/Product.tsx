@@ -10,23 +10,22 @@ import productReference from "@/assets/product-reference.webp";
 import productHero from "@/assets/product-hero.jpg";
 import slide2White from "@/assets/slide-2-new.jpg";
 
-// Product images by color
-const productImagesByColor = {
-  pink: [
-    productHero,
-    productReference,
-    "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
-    "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=800",
-    "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
-  ],
-  white: [
-    slide2White,
-    "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
-    "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
-    "https://m.media-amazon.com/images/I/41Hcl6OWcCL._AC_SL1500_.jpg",
-    "https://m.media-amazon.com/images/I/412dxPM5ewL._AC_SL1500_.jpg",
-    "https://m.media-amazon.com/images/I/41pLXObtEtL._AC_SL1500_.jpg",
-  ],
+// All product images combined in one gallery
+const productImages = [
+  productHero,
+  productReference,
+  slide2White,
+  "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
+  "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=800",
+  "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
+  "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
+  "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
+];
+
+// Product images by color for cart display
+const productImageByColor = {
+  pink: productHero,
+  white: slide2White,
 };
 
 const features = [
@@ -74,13 +73,6 @@ const Product = () => {
     return quantity;
   };
 
-  // Get current color's images
-  const productImages = productImagesByColor[selectedColor];
-
-  // Reset selected image when color changes
-  useEffect(() => {
-    setSelectedImage(0);
-  }, [selectedColor]);
 
   // Prevent auto-zoom on mobile
   useEffect(() => {
@@ -106,7 +98,7 @@ const Product = () => {
       price: effectivePrice,
       quantity: effectiveQty,
       color: selectedColor,
-      image: productImages[0],
+      image: productImageByColor[selectedColor],
     });
   };
 
