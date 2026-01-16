@@ -22,10 +22,10 @@ const productImages = [
   "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
 ];
 
-// Product images by color for cart display
-const productImageByColor = {
-  pink: productHero,
-  white: slide2White,
+// Product image index by color (for auto-switching on color selection)
+const productImageIndexByColor = {
+  pink: 0, // productHero is at index 0
+  white: 2, // slide2White is at index 2
 };
 
 const features = [
@@ -73,6 +73,10 @@ const Product = () => {
     return quantity;
   };
 
+  // Switch to color's main image when color changes
+  useEffect(() => {
+    setSelectedImage(productImageIndexByColor[selectedColor]);
+  }, [selectedColor]);
 
   // Prevent auto-zoom on mobile
   useEffect(() => {
@@ -98,7 +102,7 @@ const Product = () => {
       price: effectivePrice,
       quantity: effectiveQty,
       color: selectedColor,
-      image: productImageByColor[selectedColor],
+      image: productImages[productImageIndexByColor[selectedColor]],
     });
   };
 
