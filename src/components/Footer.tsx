@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   const trustBadges = [
-    { icon: Shield, label: "Güvenli Alışveriş" },
-    { icon: Lock, label: "SSL Korumalı" },
-    { icon: Truck, label: "Hızlı Kargo" },
-    { icon: RefreshCw, label: "Kolay İade" },
+    { icon: Shield, label: "Secure Shopping" },
+    { icon: Lock, label: "SSL Protected" },
+    { icon: Truck, label: "Fast Shipping" },
+    { icon: RefreshCw, label: "Easy Returns" },
   ];
 
   const policies = [
-    { name: "Gizlilik Politikası", href: "/privacy" },
-    { name: "İade Politikası", href: "/returns" },
-    { name: "Kargo Politikası", href: "/shipping" },
-    { name: "Kullanım Şartları", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Return Policy", href: "/returns" },
+    { name: "Shipping Policy", href: "/shipping" },
+    { name: "Terms of Use", href: "/terms" },
   ];
 
   return (
@@ -61,15 +61,15 @@ const Footer = () => {
                 WarmRelief
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                Regl ağrılarına etkili ve konforlu çözüm. 
-                Isıtma ve masaj teknolojisiyle rahatlık sağlıyoruz.
+                Effective and comfortable relief for menstrual pain. 
+                We provide comfort through heating and massage technology.
               </p>
               {/* Payment Icons */}
               <div className="flex items-center gap-2 mt-4">
                 <div className="p-2 rounded-md bg-white/10 border border-border/30">
                   <CreditCard className="w-5 h-5 text-muted-foreground" />
                 </div>
-                <span className="text-xs text-muted-foreground">Güvenli Ödeme</span>
+                <span className="text-xs text-muted-foreground">Secure Payment</span>
               </div>
             </motion.div>
 
@@ -80,7 +80,7 @@ const Footer = () => {
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-foreground">Hızlı Linkler</h4>
+              <h4 className="text-lg font-semibold mb-4 text-foreground">Quick Links</h4>
               <ul className="space-y-3">
                 <li>
                   <Link
@@ -88,7 +88,7 @@ const Footer = () => {
                     className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    Ana Sayfa
+                    Home
                   </Link>
                 </li>
                 <li>
@@ -97,7 +97,7 @@ const Footer = () => {
                     className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    Ürün
+                    Product
                   </Link>
                 </li>
                 <li>
@@ -106,7 +106,7 @@ const Footer = () => {
                     className="text-muted-foreground hover:text-primary transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    İletişim
+                    Contact
                   </Link>
                 </li>
               </ul>
@@ -119,7 +119,7 @@ const Footer = () => {
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-foreground">Politikalar</h4>
+              <h4 className="text-lg font-semibold mb-4 text-foreground">Policies</h4>
               <ul className="space-y-3">
                 {policies.map((policy) => (
                   <li key={policy.name}>
@@ -142,7 +142,7 @@ const Footer = () => {
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-foreground">İletişim</h4>
+              <h4 className="text-lg font-semibold mb-4 text-foreground">Contact</h4>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-muted-foreground text-sm group">
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -154,13 +154,13 @@ const Footer = () => {
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     <Phone className="w-4 h-4 text-primary" />
                   </div>
-                  <span>+90 555 123 4567</span>
+                  <span>+1 555 123 4567</span>
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground text-sm group">
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     <MapPin className="w-4 h-4 text-primary" />
                   </div>
-                  <span>İstanbul, Türkiye</span>
+                  <span>New York, USA</span>
                 </li>
               </ul>
             </motion.div>
@@ -173,12 +173,12 @@ const Footer = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
-              © 2024 WarmRelief. Tüm hakları saklıdır.
+              © 2024 WarmRelief. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm flex items-center gap-2">
-              <span>Konforunuz için</span>
+              <span>Made with</span>
               <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" />
-              <span>ile yapıldı</span>
+              <span>for your comfort</span>
             </p>
           </div>
         </div>
