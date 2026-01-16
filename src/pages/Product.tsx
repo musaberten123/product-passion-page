@@ -40,7 +40,7 @@ const features = [
   { text: "Far-infrared wave technology", icon: "Waves" },
 ];
 
-const PRICE = 25;
+const PRICE = 30;
 
 // Bundle deals
 const bundles = [
