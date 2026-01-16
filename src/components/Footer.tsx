@@ -154,13 +154,13 @@ const Footer = () => {
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     <Phone className="w-4 h-4 text-primary" />
                   </div>
-                  <span>+1 555 123 4567</span>
+                  <span>+44 20 1234 5678</span>
                 </li>
                 <li className="flex items-center gap-3 text-muted-foreground text-sm group">
                   <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     <MapPin className="w-4 h-4 text-primary" />
                   </div>
-                  <span>New York, USA</span>
+                  <span>London, United Kingdom</span>
                 </li>
               </ul>
             </motion.div>
