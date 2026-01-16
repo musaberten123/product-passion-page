@@ -710,7 +710,7 @@ const Product = () => {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group col-span-2 lg:col-span-1">
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
                   <div className="flex items-start gap-2 md:gap-3">
                     <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
                       <span className="text-amber-500 text-[10px] md:text-base">⚡</span>
@@ -718,6 +718,20 @@ const Product = () => {
                     <div>
                       <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Skin Disorders</h4>
                       <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Use with caution if sensitive</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.25}>
+                <div className="p-2.5 md:p-5 bg-card rounded-lg md:rounded-2xl border border-border hover:border-amber-500/50 transition-colors group">
+                  <div className="flex items-start gap-2 md:gap-3">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-md md:rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                      <span className="text-amber-500 text-[10px] md:text-base">🔌</span>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] md:text-base font-semibold mb-0.5 md:mb-1">Unplug After Use</h4>
+                      <p className="text-muted-foreground text-[10px] md:text-sm leading-tight">Disconnect when not in use</p>
                     </div>
                   </div>
                 </div>
