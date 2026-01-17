@@ -10,7 +10,6 @@ import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
 import slide1 from "@/assets/slide-1-new.jpg";
 import slide2 from "@/assets/slide-2-new.jpg";
-import slide3 from "@/assets/slide-3-new.jpeg";
 
 // Slideshow order: Image 3 → Image 1 → "OR" → Image 2 → loop
 type SlideType = 
