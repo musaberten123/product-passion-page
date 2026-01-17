@@ -17,9 +17,9 @@ type SlideType =
   | { type: "text"; content: string };
 
 const heroSlides: SlideType[] = [
-  { type: "image", src: slide1, bgColor: "#fefefe", objectFit: "contain", productSize: "max-w-[500px] max-h-[70vh]" },
+  { type: "image", src: slide1, bgColor: "#fefefe", objectFit: "contain", productSize: "max-w-[85vw] max-h-[65vh] md:max-w-[500px] md:max-h-[70vh]" },
   { type: "text", content: "OR" },
-  { type: "image", src: slide2, bgColor: "#ffffff", objectFit: "contain", productSize: "max-w-[85vw] max-h-[60vh] md:max-w-[500px] md:max-h-[70vh]" },
+  { type: "image", src: slide2, bgColor: "#ffffff", objectFit: "contain", productSize: "max-w-[85vw] max-h-[65vh] md:max-w-[500px] md:max-h-[70vh]" },
 ];
 
 const Index = () => {
