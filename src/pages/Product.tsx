@@ -128,7 +128,7 @@ const Product = () => {
 
       <main className="pt-16 pb-8 md:pt-24 md:pb-16">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-12">
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-4 md:gap-12">
             
             {/* Mobile Image Gallery - Swipeable style */}
             <div className="lg:hidden">
@@ -338,7 +338,7 @@ const Product = () => {
             <ScrollReveal direction="left" className="hidden lg:block">
               <div className="space-y-4">
                 <motion.div
-                  className="aspect-square max-w-xs mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-white to-gray-50 border border-border flex items-center justify-center"
+                  className="aspect-square w-full max-w-lg mx-auto rounded-2xl overflow-hidden bg-gradient-to-b from-white to-gray-50 border border-border flex items-center justify-center"
                   layoutId="productImage"
                 >
                   <AnimatePresence mode="wait">
@@ -350,20 +350,20 @@ const Product = () => {
                       transition={{ duration: 0.3 }}
                       src={productImages[selectedImage]}
                       alt="Product"
-                      className="w-[70%] h-[70%] object-contain"
+                      className="w-[85%] h-[85%] object-contain"
                       loading="eager"
                     />
                   </AnimatePresence>
                 </motion.div>
 
-                <div className="flex gap-3 overflow-x-auto pb-2 justify-start px-2">
+                <div className="flex gap-3 overflow-x-auto pb-2 justify-center px-2">
                   {productImages.map((img, index) => (
                     <motion.button
                       key={index}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedImage(index)}
-                      className={`flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden border-2 transition-colors ${
+                      className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-colors ${
                         selectedImage === index
                           ? "border-primary"
                           : "border-border hover:border-primary/50"
@@ -372,7 +372,7 @@ const Product = () => {
                       <img
                         src={img}
                         alt={`Product ${index + 1}`}
-                        className="w-full h-full object-contain p-1 bg-white"
+                        className="w-full h-full object-contain p-2 bg-white"
                         loading="lazy"
                       />
                     </motion.button>
