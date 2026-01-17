@@ -9,6 +9,7 @@ import PaymentIcons, { PaymentIconsLarge } from "@/components/PaymentIcons";
 import productReference from "@/assets/product-reference.webp";
 import productHero from "@/assets/product-hero.jpg";
 import slide2White from "@/assets/slide-2-new.jpg";
+import productFeatures from "@/assets/product-features.png";
 
 // All product images combined in one gallery
 const productImages = [
@@ -637,6 +638,31 @@ const Product = () => {
                 </ScrollReveal>
               </div>
             </div>
+          </section>
+
+          {/* Product Features Image Section */}
+          <section className="mt-8 md:mt-24">
+            <ScrollReveal>
+              <div className="text-center mb-4 md:mb-8">
+                <h2 className="text-lg md:text-4xl font-display font-bold mb-1.5 md:mb-3">
+                  Product <span className="text-gradient">Features</span>
+                </h2>
+                <p className="text-muted-foreground text-xs md:text-base">
+                  Advanced technology for your comfort
+                </p>
+              </div>
+            </ScrollReveal>
+            
+            <ScrollReveal>
+              <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border shadow-lg">
+                <img 
+                  src={productFeatures} 
+                  alt="Product Features - Heating Levels, Vibration Massage, and Benefits" 
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </ScrollReveal>
           </section>
 
           {/* Safety Notes - Integrated Design */}
