@@ -6,21 +6,26 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import PaymentIcons, { PaymentIconsLarge } from "@/components/PaymentIcons";
+import productReference from "@/assets/product-reference.webp";
 import productHero from "@/assets/product-hero.jpg";
 import slide2White from "@/assets/slide-2-new.jpg";
 
 // All product images combined in one gallery
 const productImages = [
   productHero,
+  productReference,
   slide2White,
   "https://zovana.shop/cdn/shop/files/S359d367857b24152ba61a2509eb07645y.webp?v=1725442358&width=800",
+  "https://zovana.shop/cdn/shop/files/S33c84dd96a1e4fbebc5b71ee0132bbdcT.webp?v=1725442356&width=800",
+  "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
+  "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
   "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
 ];
 
 // Product image index by color (for auto-switching on color selection)
 const productImageIndexByColor = {
   pink: 0, // productHero is at index 0
-  white: 1, // slide2White is at index 1
+  white: 2, // slide2White is at index 2
 };
 
 const features = [
