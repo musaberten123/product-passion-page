@@ -21,6 +21,7 @@ const productImages = [
   "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
   productGallery2,
   productGallery3,
+  "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
 ];
 
 // Product image index by color (for auto-switching on color selection)
