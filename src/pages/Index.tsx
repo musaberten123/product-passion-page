@@ -81,9 +81,9 @@ const Index = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-full h-full bg-black flex items-center justify-center cursor-pointer"
+                className="w-full h-full bg-white flex items-center justify-center cursor-pointer"
               >
-                <span className="text-white text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
+                <span className="text-black text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] font-bold tracking-widest">
                   {currentSlideData.content}
                 </span>
               </motion.div>
