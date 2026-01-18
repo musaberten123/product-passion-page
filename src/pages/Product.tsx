@@ -9,13 +9,18 @@ import PaymentIcons, { PaymentIconsLarge } from "@/components/PaymentIcons";
 import productReference from "@/assets/product-reference.webp";
 import productHero from "@/assets/product-hero.jpg";
 import slide2White from "@/assets/slide-2-new.jpg";
+import productGallery1 from "@/assets/product-gallery-1.webp";
+import productGallery2 from "@/assets/product-gallery-2.jpg";
+import productGallery3 from "@/assets/product-gallery-3.webp";
 
 // All product images combined in one gallery
 const productImages = [
   productHero,
   slide2White,
+  productGallery1,
   "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
-  "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
+  productGallery2,
+  productGallery3,
 ];
 
 // Product image index by color (for auto-switching on color selection)
