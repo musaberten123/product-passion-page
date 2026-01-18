@@ -14,7 +14,6 @@ import slide2White from "@/assets/slide-2-new.jpg";
 const productImages = [
   productHero,
   slide2White,
-  "https://zovana.shop/cdn/shop/files/Sa9ee1f833de24f818dd8f09c3436a4b4b.webp?v=1725442356&width=800",
   "https://m.media-amazon.com/images/I/61YlkrFVRoL._AC_SL1500_.jpg",
   "https://m.media-amazon.com/images/I/51uueBATAaL._AC_SL1500_.jpg",
 ];
