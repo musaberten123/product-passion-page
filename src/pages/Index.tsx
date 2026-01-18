@@ -9,7 +9,7 @@ import ProductPreview from "@/components/ProductPreview";
 import Marquee from "@/components/Marquee";
 import ScrollReveal from "@/components/ScrollReveal";
 import slide1 from "@/assets/slide-1-new.jpg";
-import slide2 from "@/assets/slide-2-new.jpg";
+import slide2 from "@/assets/slide-2-new.webp";
 
 // Slideshow order: Image 3 → Image 1 → "OR" → Image 2 → loop
 type SlideType = 
